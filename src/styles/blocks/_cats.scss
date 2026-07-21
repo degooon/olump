@@ -1,0 +1,38 @@
+// ─── Категории (плитки под героем) ───
+.cats {
+  padding: 6px 0 10px;
+}
+
+.cats__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
+  gap: 12px;
+}
+
+.cat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 8px 12px;
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.cat:hover {
+  border-color: var(--ink);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.cat svg {
+  width: 66px;
+  height: 50px;
+}
+
+.cat span {
+  font-size: 13.5px;
+  font-weight: 700;
+}

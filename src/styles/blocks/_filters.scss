@@ -1,0 +1,270 @@
+// ─── Фильтры (сайдбар каталога) ───
+.filters {
+  position: sticky;
+  top: 88px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px;
+}
+
+.fgroup {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.fgroup:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 4px;
+}
+
+.fgroup__title {
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.fgroup__title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.fgroup__title-row .fgroup__title {
+  margin: 0;
+}
+
+.search {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.search input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px 10px 42px;
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+
+.search input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.search .icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--muted);
+  pointer-events: none;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  position: relative;
+}
+
+.chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chip span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.chip:hover span {
+  border-color: var(--ink);
+}
+
+.chip input:checked + span {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+
+.chip input:focus-visible + span {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  width: 100%;
+  accent-color: var(--accent);
+  cursor: pointer;
+  min-height: 24px;
+  margin: 2px 0 4px;
+}
+
+.range__val {
+  font-weight: 800;
+  font-size: 14px;
+}
+
+.range__row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--muted);
+}
+
+.swatches {
+  display: grid;
+  gap: 10px;
+}
+
+.swatch {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+  min-height: 28px;
+  position: relative;
+}
+
+.swatch input {
+  position: absolute;
+  opacity: 0;
+}
+
+.swatch__dot {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid rgba(38, 34, 28, 0.22);
+  transition: box-shadow 0.2s;
+}
+
+.swatch input:checked ~ .swatch__dot {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent);
+}
+
+.swatch input:focus-visible ~ .swatch__dot {
+  box-shadow: 0 0 0 2px var(--surface), 0 0 0 4px var(--accent), 0 0 0 6px var(--accent-soft);
+}
+
+.swatch__name {
+  font-size: 14.5px;
+}
+
+.swatch input:checked ~ .swatch__name {
+  font-weight: 700;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  min-height: 32px;
+  cursor: pointer;
+}
+
+.check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  margin: 0;
+}
+
+.checks {
+  display: grid;
+  gap: 4px;
+}
+
+.filters__reset {
+  width: 100%;
+  margin-top: 16px;
+  min-height: 46px;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.filters__reset:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+// ─── Тулбар (счётчик + сортировка) ───
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.toolbar__count {
+  color: var(--muted);
+  font-size: 14.5px;
+}
+
+.toolbar__count b {
+  color: var(--ink);
+}
+
+.toolbar__right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sortwrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--muted);
+}
+
+.sort {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 8px 38px 8px 14px;
+  appearance: none;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--ink);
+  cursor: pointer;
+  background: var(--surface) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236F675A' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center/16px;
+}
+
+.filters-toggle {
+  display: none;
+}

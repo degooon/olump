@@ -1,0 +1,197 @@
+// ─── Герой (первый экран) ───
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding: 70px 0 60px;
+
+  // Фолбэк одним url — для браузеров без image-set; ниже ретина-набор.
+  // Autoprefixer сам добавит -webkit-image-set для старых Safari.
+  background: var(--bg) url("../../img/bg/fon.webp") no-repeat right center / cover;
+  background-image:
+    image-set(
+      url("../../img/bg/fon.webp") 1x,
+      url("../../img/bg/fon@2x.webp") 2x
+    );
+}
+
+// Градиент слева — чтобы заголовок и текст читались поверх фото
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(246, 241, 231, 0.94) 0%, rgba(246, 241, 231, 0.6) 46%, rgba(246, 241, 231, 0) 75%);
+}
+
+.hero__omega {
+  position: absolute;
+  right: -30px;
+  top: -90px;
+  font-family: var(--font-d);
+  font-size: 430px;
+  line-height: 1;
+  color: rgba(177, 78, 43, 0.05);
+  -webkit-text-stroke: 1.5px rgba(177, 78, 43, 0.2);
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+}
+
+.eyebrow::before {
+  content: "";
+  width: 34px;
+  height: 1px;
+  background: var(--accent-dark);
+}
+
+.hero__title {
+  font-family: var(--font-d);
+  font-weight: 400;
+  font-size: clamp(38px, 5vw, 58px);
+  line-height: 1.12;
+  margin: 18px 0;
+}
+
+.hero__title em {
+  font-style: normal;
+  color: var(--accent-dark);
+}
+
+.hero__text {
+  color: var(--muted);
+  max-width: 46ch;
+  margin: 0 0 30px;
+  font-size: 17px;
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.btn--primary:hover {
+  background: var(--accent-dark);
+  color: #ffffff;
+}
+
+.btn--ghost {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  border-color: var(--ink);
+}
+
+.hero__stats {
+  display: flex;
+  gap: 42px;
+  margin-top: 42px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+
+.stat__num {
+  font-family: var(--font-d);
+  font-size: 29px;
+  line-height: 1.2;
+}
+
+.stat__label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+// Рисованная сцена скрыта: её место занял фото-фон с диваном.
+// Чтобы вернуть иллюстрацию — поставь display: block и убери фон у .hero.
+.hero__scene {
+  position: relative;
+  display: none;
+}
+
+.hero__arch {
+  position: relative;
+  margin-left: auto;
+  width: min(100%, 420px);
+  background: linear-gradient(180deg, #f0e6d2, #e8dac0);
+  border-radius: 999px 999px 26px 26px;
+  padding: 52px 26px 0;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero__item {
+  width: 82%;
+  margin: 0 auto;
+  filter: drop-shadow(0 20px 22px rgba(38, 34, 28, 0.16));
+}
+
+.hero__lamp {
+  position: absolute;
+  left: 2%;
+  bottom: 0;
+  width: 25%;
+}
+
+.hero__tag {
+  position: absolute;
+  right: -8px;
+  top: 20%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.hero__tag b {
+  display: block;
+  font-family: var(--font-d);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-top: 2px;
+}

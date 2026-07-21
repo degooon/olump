@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мебельный склад «Олимп» — мебель для дома</title>
+<meta name="description" content="Мебельный склад «Олимп»: диваны, кресла, столы и кровати в наличии. Каталог с фильтрами, доставка по России, гарантия 5 лет.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles/style.scss">
+</head>
+<body>
+
+<!-- SVG-библиотека: иконки и иллюстрации мебели -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <!-- Иконки (обводка) -->
+    <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5.2 5.2 0 1 1 12 5.7a5.2 5.2 0 1 1 7.5 6.9Z"/></g></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h11l.9 11.2a1.5 1.5 0 0 1-1.5 1.6H7.1a1.5 1.5 0 0 1-1.5-1.6L6.5 8Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.8 4.8L19.5 7"/></g></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></g></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M19 7h1M4 17h4M12 17h8"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></g></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></g></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></g></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></g></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 7.5v9L12 21 4 16.5v-9L12 3Z"/><path d="M12 12l8-4.5M12 12 4 7.5M12 12v9"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.2V12c0 4.4-3 7.4-7 8.8-4-1.4-7-4.4-7-8.8V6.2L12 3Z"/><path d="M9 12l2.2 2.2L15.5 10"/></g></symbol>
+
+    <!-- Иллюстрации мебели (заливка через --tint) -->
+    <symbol id="i-sofa" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="136" rx="62" ry="7" fill="rgba(38,34,28,.08)"/>
+      <rect x="44" y="46" width="112" height="42" rx="12" fill="var(--tint)"/>
+      <line x1="100" y1="52" x2="100" y2="78" stroke="rgba(38,34,28,.18)" stroke-width="2"/>
+      <rect x="54" y="54" width="26" height="22" rx="7" fill="rgba(255,255,255,.45)"/>
+      <rect x="26" y="60" width="20" height="54" rx="10" fill="var(--tint)"/>
+      <rect x="154" y="60" width="20" height="54" rx="10" fill="var(--tint)"/>
+      <rect x="48" y="80" width="104" height="32" rx="10" fill="var(--tint)"/>
+      <rect x="48" y="80" width="104" height="10" rx="5" fill="rgba(255,255,255,.28)"/>
+      <rect x="52" y="112" width="7" height="16" rx="3" fill="#54493B"/>
+      <rect x="141" y="112" width="7" height="16" rx="3" fill="#54493B"/>
+    </symbol>
+    <symbol id="i-armchair" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="136" rx="48" ry="6" fill="rgba(38,34,28,.08)"/>
+      <rect x="68" y="34" width="64" height="58" rx="16" fill="var(--tint)"/>
+      <rect x="76" y="43" width="48" height="22" rx="9" fill="rgba(255,255,255,.35)"/>
+      <rect x="52" y="66" width="18" height="44" rx="9" fill="var(--tint)"/>
+      <rect x="130" y="66" width="18" height="44" rx="9" fill="var(--tint)"/>
+      <rect x="66" y="88" width="68" height="24" rx="9" fill="var(--tint)"/>
+      <rect x="66" y="88" width="68" height="8" rx="4" fill="rgba(255,255,255,.28)"/>
+      <line x1="74" y1="112" x2="66" y2="132" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
+      <line x1="126" y1="112" x2="134" y2="132" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="i-table" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="136" rx="58" ry="6" fill="rgba(38,34,28,.08)"/>
+      <path d="M96 46c-9-3-13-10-12-18 8 0 13 6 14 12" fill="#8A8B67"/>
+      <path d="M104 46c9-3 13-10 12-18-8 0-13 6-14 12" fill="#8A8B67"/>
+      <path d="M92 47h16l-2.5 15h-11z" fill="#EFE5D2" stroke="rgba(38,34,28,.15)"/>
+      <rect x="34" y="62" width="132" height="13" rx="6.5" fill="var(--tint)"/>
+      <rect x="42" y="75" width="116" height="6" rx="3" fill="rgba(38,34,28,.10)"/>
+      <rect x="48" y="75" width="9" height="55" rx="3" fill="var(--tint)"/>
+      <rect x="143" y="75" width="9" height="55" rx="3" fill="var(--tint)"/>
+    </symbol>
+    <symbol id="i-chair" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="136" rx="40" ry="5" fill="rgba(38,34,28,.08)"/>
+      <rect x="76" y="30" width="48" height="46" rx="10" fill="var(--tint)"/>
+      <rect x="84" y="39" width="32" height="5" rx="2.5" fill="rgba(255,255,255,.4)"/>
+      <rect x="84" y="50" width="32" height="5" rx="2.5" fill="rgba(255,255,255,.4)"/>
+      <rect x="68" y="76" width="64" height="13" rx="6" fill="var(--tint)"/>
+      <line x1="76" y1="89" x2="70" y2="130" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
+      <line x1="124" y1="89" x2="130" y2="130" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
+      <line x1="90" y1="89" x2="88" y2="127" stroke="#54493B" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+      <line x1="110" y1="89" x2="112" y2="127" stroke="#54493B" stroke-width="5" stroke-linecap="round" opacity=".5"/>
+    </symbol>
+    <symbol id="i-bed" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="138" rx="70" ry="6" fill="rgba(38,34,28,.08)"/>
+      <rect x="42" y="34" width="116" height="56" rx="14" fill="var(--tint)"/>
+      <rect x="52" y="42" width="96" height="18" rx="8" fill="rgba(255,255,255,.30)"/>
+      <rect x="34" y="84" width="132" height="30" rx="10" fill="#F3EADB"/>
+      <rect x="34" y="84" width="132" height="30" rx="10" fill="none" stroke="rgba(38,34,28,.12)"/>
+      <rect x="48" y="70" width="42" height="20" rx="8" fill="#FFFFFF" stroke="rgba(38,34,28,.12)"/>
+      <path d="M34 98h132v6a10 10 0 0 1-10 10H44a10 10 0 0 1-10-10z" fill="var(--tint)"/>
+      <rect x="40" y="114" width="7" height="14" rx="3" fill="#54493B"/>
+      <rect x="153" y="114" width="7" height="14" rx="3" fill="#54493B"/>
+    </symbol>
+    <symbol id="i-wardrobe" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="138" rx="52" ry="6" fill="rgba(38,34,28,.08)"/>
+      <rect x="58" y="30" width="84" height="8" rx="4" fill="var(--tint)"/>
+      <rect x="58" y="30" width="84" height="8" rx="4" fill="rgba(38,34,28,.18)"/>
+      <rect x="62" y="38" width="76" height="88" rx="6" fill="var(--tint)"/>
+      <line x1="100" y1="42" x2="100" y2="122" stroke="rgba(255,255,255,.5)" stroke-width="2.5"/>
+      <rect x="66" y="46" width="26" height="4" rx="2" fill="rgba(255,255,255,.30)"/>
+      <rect x="108" y="46" width="26" height="4" rx="2" fill="rgba(255,255,255,.30)"/>
+      <rect x="92" y="74" width="4" height="14" rx="2" fill="rgba(38,34,28,.35)"/>
+      <rect x="104" y="74" width="4" height="14" rx="2" fill="rgba(38,34,28,.35)"/>
+      <rect x="66" y="126" width="8" height="10" rx="3" fill="#54493B"/>
+      <rect x="126" y="126" width="8" height="10" rx="3" fill="#54493B"/>
+    </symbol>
+    <symbol id="i-shelf" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="138" rx="52" ry="6" fill="rgba(38,34,28,.08)"/>
+      <rect x="58" y="28" width="7" height="104" rx="3" fill="var(--tint)"/>
+      <rect x="135" y="28" width="7" height="104" rx="3" fill="var(--tint)"/>
+      <rect x="58" y="56" width="84" height="6" rx="3" fill="var(--tint)"/>
+      <rect x="58" y="90" width="84" height="6" rx="3" fill="var(--tint)"/>
+      <rect x="58" y="124" width="84" height="6" rx="3" fill="var(--tint)"/>
+      <rect x="72" y="36" width="7" height="20" rx="2" fill="#B14E2B"/>
+      <rect x="81" y="34" width="7" height="22" rx="2" fill="#D8C3A0"/>
+      <rect x="90" y="38" width="7" height="18" rx="2" fill="#8A8B67"/>
+      <rect x="70" y="70" width="7" height="20" rx="2" fill="#54493B"/>
+      <rect x="79" y="72" width="7" height="18" rx="2" fill="#B14E2B"/>
+      <rect x="112" y="66" width="6" height="8" rx="2" fill="#EFE5D2"/>
+      <ellipse cx="115" cy="80" rx="8" ry="10" fill="#EFE5D2"/>
+      <rect x="98" y="104" width="26" height="20" rx="3" fill="#D8C3A0"/>
+      <line x1="98" y1="112" x2="124" y2="112" stroke="rgba(38,34,28,.15)" stroke-width="2"/>
+    </symbol>
+    <symbol id="i-lamp" viewBox="0 0 200 150">
+      <ellipse cx="100" cy="136" rx="34" ry="5" fill="rgba(38,34,28,.08)"/>
+      <path d="M80 34h40l12 32H68z" fill="var(--tint)"/>
+      <path d="M80 34h40l4 11H76z" fill="rgba(255,255,255,.25)"/>
+      <rect x="97" y="66" width="6" height="56" rx="3" fill="#54493B"/>
+      <ellipse cx="100" cy="126" rx="24" ry="6" fill="#54493B"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- Шапка -->
+<header class="header">
+  <div class="container header__inner">
+    <a class="logo" href="#top" aria-label="Мебельный склад «Олимп» — на главную">
+      <svg class="logo__full" role="img" aria-label="Мебельный склад Олимп" viewBox="0 0 459 324">
+        <path transform="translate(46.63 115.12) scale(0.04800 -0.04800)" d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" fill="#B14E2B"/>
+        <path transform="translate(189.48 115.12) scale(0.04800 -0.04800)" d="M1318 0H1042V960L416 0H140V1440H416V480L1042 1440H1318Z" fill="#B14E2B"/>
+        <path transform="translate(259.46 115.12) scale(0.04800 -0.04800)" d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" fill="#B14E2B"/>
+        <path transform="translate(342.02 115.12) scale(0.04800 -0.04800)" d="M140 0V1440H1328V0H1056V1186H412V0Z" fill="#B14E2B"/>
+        <path d="M 120.8 115.1 L 150.2 46.0 L 150.2 115.1 Z" fill="#B14E2B"/>
+        <path d="M 150.2 115.1 L 150.2 46.0 L 163.5 77.8 L 175.5 66.7 L 188.8 115.1 Z" fill="#8F3D1C"/>
+        <path d="M 141.1 59.8 L 150.2 46.0 L 159.3 59.8 L 153.9 55.4 L 150.2 60.1 L 146.6 55.4 Z" fill="#F6F1E7"/>
+        <path transform="translate(46.00 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" fill="#B14E2B"/>
+        <path transform="translate(123.40 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#B14E2B"/>
+        <path transform="translate(176.50 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H1128V1186H412V912H748Q768 912 804.0 910.5Q840 909 868 906Q992 893 1074.5 829.5Q1157 766 1198.5 668.5Q1240 571 1240 456Q1240 341 1199.0 243.5Q1158 146 1075.5 82.5Q993 19 868 6Q840 3 804.5 1.5Q769 0 748 0ZM412 254H736Q757 254 782.0 256.0Q807 258 828 262Q911 280 938.5 339.0Q966 398 966 456Q966 515 938.5 573.5Q911 632 828 650Q807 655 782.0 656.5Q757 658 736 658H412Z" fill="#B14E2B"/>
+        <path transform="translate(235.00 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#B14E2B"/>
+        <path transform="translate(288.10 197.92) scale(0.04500 -0.04500)" d="M40 0V226Q86 223 118.0 234.0Q150 245 172.5 274.5Q195 304 212.0 356.5Q229 409 244 488Q268 613 284.5 751.5Q301 890 312.0 1023.0Q323 1156 329.0 1265.5Q335 1375 338 1440H1320V0H1048V1186H588Q584 1130 577.5 1040.0Q571 950 560.0 841.0Q549 732 533.0 615.0Q517 498 494 388Q473 281 443.0 198.5Q413 116 363.5 63.5Q314 11 236.0 -6.0Q158 -23 40 0Z" fill="#B14E2B"/>
+        <path transform="translate(353.80 197.92) scale(0.04500 -0.04500)" d="M138 0V1440H410V952H746Q766 952 802.0 950.5Q838 949 866 944Q994 924 1076.5 859.0Q1159 794 1198.5 695.5Q1238 597 1238 476Q1238 355 1199.0 256.5Q1160 158 1077.5 93.0Q995 28 866 8Q838 4 802.5 2.0Q767 0 746 0ZM410 254H734Q755 254 780.0 256.0Q805 258 826 264Q881 279 911.0 314.5Q941 350 952.5 393.5Q964 437 964 476Q964 515 952.5 558.5Q941 602 911.0 637.5Q881 673 826 688Q805 694 780.0 696.0Q755 698 734 698H410Z" fill="#B14E2B"/>
+        <rect x="16.0" y="219.9" width="427.1" height="58" rx="6" fill="#B14E2B"/>
+        <path transform="translate(40.77 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" fill="#FFFFFF"/>
+        <path transform="translate(71.77 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#FFFFFF"/>
+        <path transform="translate(94.40 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H1128V1186H412V912H748Q768 912 804.0 910.5Q840 909 868 906Q992 893 1074.5 829.5Q1157 766 1198.5 668.5Q1240 571 1240 456Q1240 341 1199.0 243.5Q1158 146 1075.5 82.5Q993 19 868 6Q840 3 804.5 1.5Q769 0 748 0ZM412 254H736Q757 254 782.0 256.0Q807 258 828 262Q911 280 938.5 339.0Q966 398 966 456Q966 515 938.5 573.5Q911 632 828 650Q807 655 782.0 656.5Q757 658 736 658H412Z" fill="#FFFFFF"/>
+        <path transform="translate(118.89 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#FFFFFF"/>
+        <path transform="translate(141.52 260.08) scale(0.01550 -0.01550)" d="M40 0V226Q86 223 118.0 234.0Q150 245 172.5 274.5Q195 304 212.0 356.5Q229 409 244 488Q268 613 284.5 751.5Q301 890 312.0 1023.0Q323 1156 329.0 1265.5Q335 1375 338 1440H1320V0H1048V1186H588Q584 1130 577.5 1040.0Q571 950 560.0 841.0Q549 732 533.0 615.0Q517 498 494 388Q473 281 443.0 198.5Q413 116 363.5 63.5Q314 11 236.0 -6.0Q158 -23 40 0Z" fill="#FFFFFF"/>
+        <path transform="translate(168.49 260.08) scale(0.01550 -0.01550)" d="M138 0V1440H410V952H746Q766 952 802.0 950.5Q838 949 866 944Q994 924 1076.5 859.0Q1159 794 1198.5 695.5Q1238 597 1238 476Q1238 355 1199.0 256.5Q1160 158 1077.5 93.0Q995 28 866 8Q838 4 802.5 2.0Q767 0 746 0ZM410 254H734Q755 254 780.0 256.0Q805 258 826 264Q881 279 911.0 314.5Q941 350 952.5 393.5Q964 437 964 476Q964 515 952.5 558.5Q941 602 911.0 637.5Q881 673 826 688Q805 694 780.0 696.0Q755 698 734 698H410Z" fill="#FFFFFF"/>
+        <path transform="translate(193.25 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H412V848H1056V1440H1328V0H1056V594H412V0Z" fill="#FFFFFF"/>
+        <path transform="translate(220.35 260.08) scale(0.01550 -0.01550)" d="M138 0V1440H410V952H746Q766 952 802.0 950.5Q838 949 866 944Q994 924 1076.5 859.0Q1159 794 1198.5 695.5Q1238 597 1238 476Q1238 355 1199.0 256.5Q1160 158 1077.5 93.0Q995 28 866 8Q838 4 802.5 2.0Q767 0 746 0ZM410 254H734Q755 254 780.0 256.0Q805 258 826 264Q881 279 911.0 314.5Q941 350 952.5 393.5Q964 437 964 476Q964 515 952.5 558.5Q941 602 911.0 637.5Q881 673 826 688Q805 694 780.0 696.0Q755 698 734 698H410ZM1382 0V1440H1654V0Z" fill="#FFFFFF"/>
+        <path transform="translate(252.50 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H416V480L1042 1440H1318V0H1042V960L416 0ZM724 1560Q636 1560 564.0 1603.0Q492 1646 449.0 1718.0Q406 1790 406 1878H616Q616 1833 647.5 1801.5Q679 1770 724 1770Q769 1770 800.5 1801.5Q832 1833 832 1878H1042Q1042 1790 999.0 1718.0Q956 1646 884.0 1603.0Q812 1560 724 1560Z" fill="#FFFFFF"/>
+        <path transform="translate(289.97 260.08) scale(0.01550 -0.01550)" d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q1006 1470 1174.5 1347.0Q1343 1224 1412 1014L1138 938Q1098 1069 1003.0 1141.5Q908 1214 758 1214Q621 1214 529.5 1153.0Q438 1092 392.0 981.0Q346 870 346 720Q346 570 392.0 459.0Q438 348 529.5 287.0Q621 226 758 226Q908 226 1003.0 299.0Q1098 372 1138 502L1412 426Q1343 216 1174.5 93.0Q1006 -30 758 -30Z" fill="#FFFFFF"/>
+        <path transform="translate(317.44 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H412V776L960 1440H1292L690 730L1330 0H986L412 656V0Z" fill="#FFFFFF"/>
+        <path transform="translate(342.40 260.08) scale(0.01550 -0.01550)" d="M40 0V226Q86 223 118.0 234.0Q150 245 172.5 274.5Q195 304 212.0 356.5Q229 409 244 488Q268 613 284.5 751.5Q301 890 312.0 1023.0Q323 1156 329.0 1265.5Q335 1375 338 1440H1320V0H1048V1186H588Q584 1130 577.5 1040.0Q571 950 560.0 841.0Q549 732 533.0 615.0Q517 498 494 388Q473 281 443.0 198.5Q413 116 363.5 63.5Q314 11 236.0 -6.0Q158 -23 40 0Z" fill="#FFFFFF"/>
+        <path transform="translate(369.37 260.08) scale(0.01550 -0.01550)" d="M40 0 480 1440H886L1326 0H1046L654 1270H706L320 0ZM304 300V554H1064V300Z" fill="#FFFFFF"/>
+        <path transform="translate(394.88 260.08) scale(0.01550 -0.01550)" d="M60 -240V254Q125 254 170.5 286.5Q216 319 245.0 378.5Q274 438 291.0 518.0Q308 598 316 692Q326 812 334.0 928.5Q342 1045 350.0 1170.5Q358 1296 368 1442L1324 1440V254H1434V-240H1162V0H332V-240ZM466 254H1052V1186L616 1188Q609 1089 604.5 1006.0Q600 923 594.0 838.0Q588 753 578 648Q568 543 558.0 475.5Q548 408 527.5 358.0Q507 308 466 254Z" fill="#FFFFFF"/>
+      </svg>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#catalog">Каталог</a>
+      <a href="#features">Преимущества</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <button class="header__cart" type="button" id="cart-open" aria-haspopup="dialog" aria-controls="cart-drawer" aria-label="Корзина">
+      <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>
+      <span class="header__cart-label">Корзина</span>
+      <span class="header__count" id="cart-count" hidden>0</span>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- Герой -->
+  <section class="hero">
+    <div class="container">
+      <span class="hero__omega" aria-hidden="true">&Omega;</span>
+      <div class="hero__inner">
+        <div>
+          <span class="eyebrow">Мебельный склад</span>
+          <h1 class="hero__title">Мебель, достойная <em>Олимпа</em></h1>
+          <p class="hero__text">Диваны, кресла и столы из массива и честных тканей. Делаем сами, доставляем по всей России и даём гарантию 5&nbsp;лет — потому что уверены в каждом шве.</p>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#catalog">Смотреть каталог
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" href="#features">Доставка и гарантия</a>
+          </div>
+          <div class="hero__stats">
+            <div class="stat"><div class="stat__num">12 лет</div><div class="stat__label">делаем мебель</div></div>
+            <div class="stat"><div class="stat__num">4 800+</div><div class="stat__label">довольных клиентов</div></div>
+            <div class="stat"><div class="stat__num">5 лет</div><div class="stat__label">гарантии на всё</div></div>
+          </div>
+        </div>
+        <div class="hero__scene">
+          <div class="hero__arch">
+            <svg class="hero__item" viewBox="0 0 200 150" style="--tint:#C0653F" role="img" aria-label="Кресло «Арго»"><use href="#i-armchair"/></svg>
+          </div>
+          <svg class="hero__lamp" viewBox="0 0 200 150" style="--tint:#8A8B67" aria-hidden="true"><use href="#i-lamp"/></svg>
+          <div class="hero__tag">Кресло «Арго»<b>24 900 ₽</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Быстрые категории -->
+  <section class="cats" aria-label="Категории каталога">
+    <div class="container">
+      <div class="cats__grid">
+        <button class="cat" type="button" data-cat="sofa" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-sofa"/></svg><span>Диваны</span></button>
+        <button class="cat" type="button" data-cat="armchair" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-armchair"/></svg><span>Кресла</span></button>
+        <button class="cat" type="button" data-cat="table" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-table"/></svg><span>Столы</span></button>
+        <button class="cat" type="button" data-cat="chair" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-chair"/></svg><span>Стулья</span></button>
+        <button class="cat" type="button" data-cat="bed" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-bed"/></svg><span>Кровати</span></button>
+        <button class="cat" type="button" data-cat="storage" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-wardrobe"/></svg><span>Шкафы</span></button>
+        <button class="cat" type="button" data-cat="light" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-lamp"/></svg><span>Свет</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Каталог -->
+  <section class="section" id="catalog">
+    <div class="container">
+      <div class="section__head">
+        <div>
+          <span class="eyebrow">Каталог</span>
+          <h2 class="section__title">Выберите свою мебель</h2>
+        </div>
+        <button class="filters-toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
+          <svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg>
+          Фильтры
+        </button>
+      </div>
+
+      <div class="catalog__layout">
+
+        <!-- Фильтры -->
+        <aside class="filters" id="filters-panel" aria-label="Фильтры каталога">
+          <form id="filters-form">
+            <div class="search">
+              <label class="visually-hidden" for="search">Поиск по каталогу</label>
+              <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+              <input type="search" id="search" name="q" placeholder="Поиск по каталогу" autocomplete="off">
+            </div>
+
+            <div class="fgroup" role="group" aria-labelledby="f-cat">
+              <h3 class="fgroup__title" id="f-cat">Категория</h3>
+              <div class="chips">
+                <label class="chip"><input type="radio" name="cat" value="all" checked><span>Все</span></label>
+                <label class="chip"><input type="radio" name="cat" value="sofa"><span>Диваны</span></label>
+                <label class="chip"><input type="radio" name="cat" value="armchair"><span>Кресла</span></label>
+                <label class="chip"><input type="radio" name="cat" value="table"><span>Столы</span></label>
+                <label class="chip"><input type="radio" name="cat" value="chair"><span>Стулья</span></label>
+                <label class="chip"><input type="radio" name="cat" value="bed"><span>Кровати</span></label>
+                <label class="chip"><input type="radio" name="cat" value="storage"><span>Шкафы</span></label>
+                <label class="chip"><input type="radio" name="cat" value="light"><span>Свет</span></label>
+              </div>
+            </div>
+
+            <div class="fgroup">
+              <div class="fgroup__title-row">
+                <h3 class="fgroup__title" id="f-price">Цена, до</h3>
+                <output class="range__val" id="price-out" for="price-range"></output>
+              </div>
+              <input type="range" id="price-range" name="max" min="5000" max="90000" step="1000" value="90000" aria-labelledby="f-price">
+              <div class="range__row"><span>5 000 ₽</span><span>90 000 ₽</span></div>
+            </div>
+
+            <div class="fgroup" role="group" aria-labelledby="f-color">
+              <h3 class="fgroup__title" id="f-color">Цвет</h3>
+              <div class="swatches">
+                <label class="swatch"><input type="checkbox" name="color" value="graphite"><span class="swatch__dot" style="background:#4A4642"></span><span class="swatch__name">Графит</span></label>
+                <label class="swatch"><input type="checkbox" name="color" value="beige"><span class="swatch__dot" style="background:#D8C3A0"></span><span class="swatch__name">Бежевый</span></label>
+                <label class="swatch"><input type="checkbox" name="color" value="terra"><span class="swatch__dot" style="background:#C0653F"></span><span class="swatch__name">Терракота</span></label>
+                <label class="swatch"><input type="checkbox" name="color" value="olive"><span class="swatch__dot" style="background:#8A8B67"></span><span class="swatch__name">Олива</span></label>
+              </div>
+            </div>
+
+            <div class="fgroup" role="group" aria-labelledby="f-mat">
+              <h3 class="fgroup__title" id="f-mat">Материал</h3>
+              <div class="checks">
+                <label class="check"><input type="checkbox" name="mat" value="fabric">Ткань</label>
+                <label class="check"><input type="checkbox" name="mat" value="velour">Велюр</label>
+                <label class="check"><input type="checkbox" name="mat" value="wood">Дерево</label>
+                <label class="check"><input type="checkbox" name="mat" value="metal">Металл</label>
+              </div>
+            </div>
+
+            <div class="fgroup">
+              <label class="check"><input type="checkbox" name="stock">Только в наличии</label>
+            </div>
+
+            <button class="filters__reset" type="reset">
+              <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+              Сбросить фильтры
+            </button>
+          </form>
+        </aside>
+
+        <!-- Витрина -->
+        <div>
+          <div class="toolbar">
+            <span class="toolbar__count" id="count" role="status"></span>
+            <div class="toolbar__right">
+              <div class="sortwrap">
+                <label for="sort">Сортировка</label>
+                <select class="sort" id="sort">
+                  <option value="pop">По популярности</option>
+                  <option value="asc">Сначала дешевле</option>
+                  <option value="desc">Сначала дороже</option>
+                  <option value="new">Сначала новинки</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid" id="grid"></div>
+
+          <div class="empty" id="empty">
+            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+            <h3>Ничего не нашлось</h3>
+            <p>Попробуйте смягчить условия — например, поднять планку цены или убрать часть фильтров.</p>
+            <button class="btn btn--ghost" type="button" id="empty-reset">Сбросить фильтры</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Преимущества -->
+  <section class="features" id="features" aria-label="Преимущества">
+    <div class="container">
+      <div class="features__grid">
+        <div class="feature">
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg></div>
+          <div><h3>Доставка по России</h3><p>До двери за 3–7 дней. Бережно упакуем и поднимем на этаж.</p></div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></div>
+          <div><h3>Сборка под ключ</h3><p>Мастер соберёт мебель и заберёт упаковку с собой.</p></div>
+        </div>
+        <div class="feature">
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></div>
+          <div><h3>Гарантия 5 лет</h3><p>На каркас, механизмы и фурнитуру — без мелкого шрифта.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- Подвал -->
+<footer class="footer" id="contacts">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <a class="logo" href="#top">
+          <svg class="logo__full" role="img" aria-label="Мебельный склад Олимп" viewBox="0 0 459 324">
+<path transform="translate(46.63 115.12) scale(0.04800 -0.04800)" d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q974 1470 1130.5 1376.0Q1287 1282 1371.5 1113.0Q1456 944 1456 720Q1456 496 1371.5 327.0Q1287 158 1130.5 64.0Q974 -30 758 -30ZM758 226Q895 224 986.0 285.0Q1077 346 1122.5 458.0Q1168 570 1168 720Q1168 870 1122.5 980.0Q1077 1090 986.0 1151.0Q895 1212 758 1214Q621 1216 530.0 1155.0Q439 1094 393.5 982.0Q348 870 348 720Q348 570 393.5 460.0Q439 350 530.0 289.0Q621 228 758 226Z" fill="#B14E2B"/>
+<path transform="translate(189.48 115.12) scale(0.04800 -0.04800)" d="M1318 0H1042V960L416 0H140V1440H416V480L1042 1440H1318Z" fill="#B14E2B"/>
+<path transform="translate(259.46 115.12) scale(0.04800 -0.04800)" d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" fill="#B14E2B"/>
+<path transform="translate(342.02 115.12) scale(0.04800 -0.04800)" d="M140 0V1440H1328V0H1056V1186H412V0Z" fill="#B14E2B"/>
+<path d="M 120.8 115.1 L 150.2 46.0 L 150.2 115.1 Z" fill="#B14E2B"/>
+<path d="M 150.2 115.1 L 150.2 46.0 L 163.5 77.8 L 175.5 66.7 L 188.8 115.1 Z" fill="#8F3D1C"/>
+<path d="M 141.1 59.8 L 150.2 46.0 L 159.3 59.8 L 153.9 55.4 L 150.2 60.1 L 146.6 55.4 Z" fill="#F6F1E7"/>
+<path transform="translate(46.00 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" fill="#B14E2B"/>
+<path transform="translate(123.40 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#B14E2B"/>
+<path transform="translate(176.50 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H1128V1186H412V912H748Q768 912 804.0 910.5Q840 909 868 906Q992 893 1074.5 829.5Q1157 766 1198.5 668.5Q1240 571 1240 456Q1240 341 1199.0 243.5Q1158 146 1075.5 82.5Q993 19 868 6Q840 3 804.5 1.5Q769 0 748 0ZM412 254H736Q757 254 782.0 256.0Q807 258 828 262Q911 280 938.5 339.0Q966 398 966 456Q966 515 938.5 573.5Q911 632 828 650Q807 655 782.0 656.5Q757 658 736 658H412Z" fill="#B14E2B"/>
+<path transform="translate(235.00 197.92) scale(0.04500 -0.04500)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#B14E2B"/>
+<path transform="translate(288.10 197.92) scale(0.04500 -0.04500)" d="M40 0V226Q86 223 118.0 234.0Q150 245 172.5 274.5Q195 304 212.0 356.5Q229 409 244 488Q268 613 284.5 751.5Q301 890 312.0 1023.0Q323 1156 329.0 1265.5Q335 1375 338 1440H1320V0H1048V1186H588Q584 1130 577.5 1040.0Q571 950 560.0 841.0Q549 732 533.0 615.0Q517 498 494 388Q473 281 443.0 198.5Q413 116 363.5 63.5Q314 11 236.0 -6.0Q158 -23 40 0Z" fill="#B14E2B"/>
+<path transform="translate(353.80 197.92) scale(0.04500 -0.04500)" d="M138 0V1440H410V952H746Q766 952 802.0 950.5Q838 949 866 944Q994 924 1076.5 859.0Q1159 794 1198.5 695.5Q1238 597 1238 476Q1238 355 1199.0 256.5Q1160 158 1077.5 93.0Q995 28 866 8Q838 4 802.5 2.0Q767 0 746 0ZM410 254H734Q755 254 780.0 256.0Q805 258 826 264Q881 279 911.0 314.5Q941 350 952.5 393.5Q964 437 964 476Q964 515 952.5 558.5Q941 602 911.0 637.5Q881 673 826 688Q805 694 780.0 696.0Q755 698 734 698H410Z" fill="#B14E2B"/>
+<rect x="16.0" y="219.9" width="427.1" height="58" rx="6" fill="#B14E2B"/>
+<path transform="translate(40.77 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H384L860 484L1336 1440H1580V0H1326V860L908 0H812L394 860V0Z" fill="#FFFFFF"/>
+<path transform="translate(71.77 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#FFFFFF"/>
+<path transform="translate(94.40 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H1128V1186H412V912H748Q768 912 804.0 910.5Q840 909 868 906Q992 893 1074.5 829.5Q1157 766 1198.5 668.5Q1240 571 1240 456Q1240 341 1199.0 243.5Q1158 146 1075.5 82.5Q993 19 868 6Q840 3 804.5 1.5Q769 0 748 0ZM412 254H736Q757 254 782.0 256.0Q807 258 828 262Q911 280 938.5 339.0Q966 398 966 456Q966 515 938.5 573.5Q911 632 828 650Q807 655 782.0 656.5Q757 658 736 658H412Z" fill="#FFFFFF"/>
+<path transform="translate(118.89 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H1080V1186H412V878H960V624H412V254H1080V0Z" fill="#FFFFFF"/>
+<path transform="translate(141.52 260.08) scale(0.01550 -0.01550)" d="M40 0V226Q86 223 118.0 234.0Q150 245 172.5 274.5Q195 304 212.0 356.5Q229 409 244 488Q268 613 284.5 751.5Q301 890 312.0 1023.0Q323 1156 329.0 1265.5Q335 1375 338 1440H1320V0H1048V1186H588Q584 1130 577.5 1040.0Q571 950 560.0 841.0Q549 732 533.0 615.0Q517 498 494 388Q473 281 443.0 198.5Q413 116 363.5 63.5Q314 11 236.0 -6.0Q158 -23 40 0Z" fill="#FFFFFF"/>
+<path transform="translate(168.49 260.08) scale(0.01550 -0.01550)" d="M138 0V1440H410V952H746Q766 952 802.0 950.5Q838 949 866 944Q994 924 1076.5 859.0Q1159 794 1198.5 695.5Q1238 597 1238 476Q1238 355 1199.0 256.5Q1160 158 1077.5 93.0Q995 28 866 8Q838 4 802.5 2.0Q767 0 746 0ZM410 254H734Q755 254 780.0 256.0Q805 258 826 264Q881 279 911.0 314.5Q941 350 952.5 393.5Q964 437 964 476Q964 515 952.5 558.5Q941 602 911.0 637.5Q881 673 826 688Q805 694 780.0 696.0Q755 698 734 698H410Z" fill="#FFFFFF"/>
+<path transform="translate(193.25 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H412V848H1056V1440H1328V0H1056V594H412V0Z" fill="#FFFFFF"/>
+<path transform="translate(220.35 260.08) scale(0.01550 -0.01550)" d="M138 0V1440H410V952H746Q766 952 802.0 950.5Q838 949 866 944Q994 924 1076.5 859.0Q1159 794 1198.5 695.5Q1238 597 1238 476Q1238 355 1199.0 256.5Q1160 158 1077.5 93.0Q995 28 866 8Q838 4 802.5 2.0Q767 0 746 0ZM410 254H734Q755 254 780.0 256.0Q805 258 826 264Q881 279 911.0 314.5Q941 350 952.5 393.5Q964 437 964 476Q964 515 952.5 558.5Q941 602 911.0 637.5Q881 673 826 688Q805 694 780.0 696.0Q755 698 734 698H410ZM1382 0V1440H1654V0Z" fill="#FFFFFF"/>
+<path transform="translate(252.50 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H416V480L1042 1440H1318V0H1042V960L416 0ZM724 1560Q636 1560 564.0 1603.0Q492 1646 449.0 1718.0Q406 1790 406 1878H616Q616 1833 647.5 1801.5Q679 1770 724 1770Q769 1770 800.5 1801.5Q832 1833 832 1878H1042Q1042 1790 999.0 1718.0Q956 1646 884.0 1603.0Q812 1560 724 1560Z" fill="#FFFFFF"/>
+<path transform="translate(289.97 260.08) scale(0.01550 -0.01550)" d="M758 -30Q542 -30 385.5 64.0Q229 158 144.5 327.0Q60 496 60 720Q60 944 144.5 1113.0Q229 1282 385.5 1376.0Q542 1470 758 1470Q1006 1470 1174.5 1347.0Q1343 1224 1412 1014L1138 938Q1098 1069 1003.0 1141.5Q908 1214 758 1214Q621 1214 529.5 1153.0Q438 1092 392.0 981.0Q346 870 346 720Q346 570 392.0 459.0Q438 348 529.5 287.0Q621 226 758 226Q908 226 1003.0 299.0Q1098 372 1138 502L1412 426Q1343 216 1174.5 93.0Q1006 -30 758 -30Z" fill="#FFFFFF"/>
+<path transform="translate(317.44 260.08) scale(0.01550 -0.01550)" d="M140 0V1440H412V776L960 1440H1292L690 730L1330 0H986L412 656V0Z" fill="#FFFFFF"/>
+<path transform="translate(342.40 260.08) scale(0.01550 -0.01550)" d="M40 0V226Q86 223 118.0 234.0Q150 245 172.5 274.5Q195 304 212.0 356.5Q229 409 244 488Q268 613 284.5 751.5Q301 890 312.0 1023.0Q323 1156 329.0 1265.5Q335 1375 338 1440H1320V0H1048V1186H588Q584 1130 577.5 1040.0Q571 950 560.0 841.0Q549 732 533.0 615.0Q517 498 494 388Q473 281 443.0 198.5Q413 116 363.5 63.5Q314 11 236.0 -6.0Q158 -23 40 0Z" fill="#FFFFFF"/>
+<path transform="translate(369.37 260.08) scale(0.01550 -0.01550)" d="M40 0 480 1440H886L1326 0H1046L654 1270H706L320 0ZM304 300V554H1064V300Z" fill="#FFFFFF"/>
+<path transform="translate(394.88 260.08) scale(0.01550 -0.01550)" d="M60 -240V254Q125 254 170.5 286.5Q216 319 245.0 378.5Q274 438 291.0 518.0Q308 598 316 692Q326 812 334.0 928.5Q342 1045 350.0 1170.5Q358 1296 368 1442L1324 1440V254H1434V-240H1162V0H332V-240ZM466 254H1052V1186L616 1188Q609 1089 604.5 1006.0Q600 923 594.0 838.0Q588 753 578 648Q568 543 558.0 475.5Q548 408 527.5 358.0Q507 308 466 254Z" fill="#FFFFFF"/>
+</svg>
+        </a>
+        <p class="footer__about">Проектируем и производим мебель, которая переживает моду: спокойные формы, массив дерева и ткани, приятные на ощупь.</p>
+      </div>
+      <div>
+        <h4>Навигация</h4>
+        <ul>
+          <li><a href="#catalog">Каталог</a></li>
+          <li><a href="#features">Доставка и сборка</a></li>
+          <li><a href="#features">Гарантия</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+78000000000">+7 (800) 000-00-00</a></li>
+          <li><a href="mailto:hello@olimp-mebel.ru">hello@olimp-mebel.ru</a></li>
+          <li>Ежедневно с 10:00 до 20:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span>&copy; 2026 Мебельный склад «Олимп»</span>
+      <span>Мебель, достойная Олимпа</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Панель корзины -->
+<div class="cart-overlay" id="cart-overlay" hidden></div>
+<aside class="cart" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
+  <div class="cart__head">
+    <h2 class="cart__title" id="cart-title">Корзина</h2>
+    <button class="cart__close" type="button" id="cart-close" aria-label="Закрыть корзину">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </button>
+  </div>
+  <div class="cart__list" id="cart-items"></div>
+  <div class="cart__empty" id="cart-empty">
+    <p>В корзине пока пусто</p>
+    <button class="btn btn--ghost" type="button" id="cart-to-catalog">Перейти в каталог</button>
+  </div>
+  <div class="cart__foot" id="cart-foot">
+    <div class="cart__total"><span>Итого</span><span id="cart-total">0 ₽</span></div>
+    <button class="cart__order" type="button" id="cart-order">
+      <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+      Оформить заказ
+    </button>
+    <p class="cart__hint">Откроется WhatsApp с готовым списком заказа</p>
+  </div>
+</aside>
+
+
+<script type="module" src="./js/main.js"></script>
+</body>
+</html>

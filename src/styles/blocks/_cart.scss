@@ -1,0 +1,251 @@
+// ─── Корзина (выезжающая панель) ───
+.no-scroll {
+  overflow: hidden;
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(38, 34, 28, 0.4);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.cart-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100%);
+  background: var(--surface);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(102%);
+  transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
+  box-shadow: -18px 0 44px -24px rgba(38, 34, 28, 0.35);
+}
+
+.cart.open {
+  transform: none;
+}
+
+.cart[hidden],
+.cart-overlay[hidden] {
+  display: none;
+}
+
+.cart__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 22px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cart__title {
+  font-family: var(--font-d);
+  font-size: 22px;
+  margin: 0;
+}
+
+.cart__close {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.cart__close:hover {
+  background: var(--paper);
+}
+
+.cart__list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 22px;
+}
+
+.ci {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ci:last-child {
+  border-bottom: none;
+}
+
+.ci__thumb {
+  width: 64px;
+  height: 52px;
+  border-radius: 10px;
+  background: var(--paper);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.ci__thumb svg {
+  width: 54px;
+  height: 42px;
+}
+
+.ci__name {
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.3;
+  margin: 0 0 4px;
+}
+
+.ci__unit {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ci__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.qty button {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+}
+
+.qty button:hover:not(:disabled) {
+  background: var(--paper);
+}
+
+.qty button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.qty output {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14.5px;
+}
+
+.ci__sum {
+  font-weight: 800;
+  font-size: 15.5px;
+  white-space: nowrap;
+}
+
+.ci__rm {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  color: var(--muted);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.ci__rm:hover {
+  background: var(--paper);
+  color: var(--accent-dark);
+}
+
+.cart__empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 24px;
+  display: none;
+}
+
+.cart__empty.show {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.cart__empty .btn {
+  margin-top: 14px;
+}
+
+.cart__foot {
+  border-top: 1px solid var(--line);
+  padding: 18px 22px 22px;
+}
+
+.cart__total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-weight: 800;
+  font-size: 17px;
+  margin-bottom: 14px;
+}
+
+.cart__order {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 50px;
+  border-radius: 14px;
+  background: var(--accent);
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15.5px;
+  transition: background-color 0.2s;
+}
+
+.cart__order:hover:not(:disabled) {
+  background: var(--accent-dark);
+}
+
+.cart__order:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.cart__hint {
+  margin: 10px 0 0;
+  font-size: 12.5px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cart,
+  .cart-overlay {
+    transition: none;
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "name": "olimp-mebel",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Лендинг мебельного склада «Олимп»",
+  "scripts": {
+    "start": "vite --open",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "npm run lint:js && npm run lint:css",
+    "lint:js": "eslint src",
+    "lint:css": "stylelint \"src/**/*.{css,scss}\""
+  },
+  "devDependencies": {
+    "eslint": "^8.57.1",
+    "eslint-config-htmlacademy": "^10.0.1",
+    "sass-embedded": "^1.97.3",
+    "sharp": "^0.34.5",
+    "stylelint": "^16.25.0",
+    "stylelint-config-htmlacademy": "^4.4.0",
+    "svgo": "^4.0.1",
+    "vite": "^7.3.1",
+    "vite-plugin-html": "^3.2.2",
+    "vite-plugin-image-optimizer": "^2.0.3"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.8"
+  }
+}

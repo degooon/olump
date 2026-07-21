@@ -1,0 +1,89 @@
+// ─── Адаптив (медиазапросы) ───
+@media (max-width: 920px) {
+  .catalog__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    position: static;
+    display: none;
+  }
+
+  .filters.open {
+    display: block;
+  }
+
+  .filters-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 16px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  // На узких экранах текст ложится прямо на фото — ровная вуаль вместо градиента
+  .hero::before {
+    background: rgba(246, 241, 231, 0.82);
+  }
+
+  .hero__arch {
+    margin: 0 auto;
+  }
+
+  .hero__omega {
+    font-size: 280px;
+    right: -70px;
+    top: auto;
+    bottom: -50px;
+  }
+
+  .features__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .nav {
+    display: none;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero {
+    padding: 44px 0 40px;
+  }
+
+  .hero__stats {
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+
+  .section {
+    padding: 44px 0;
+  }
+
+  .header__cart-label {
+    display: none;
+  }
+
+  .logo__full {
+    height: 60px;
+  }
+
+  .header__inner {
+    min-height: 88px;
+  }
+}

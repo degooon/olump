@@ -1,0 +1,24 @@
+// ─────────────────────────────────────────────
+//  Мебельный склад «Олимп» — точка сборки стилей
+//  Порядок подключения = порядок в итоговом CSS,
+//  поэтому менять его нужно осознанно (каскад!).
+// ─────────────────────────────────────────────
+
+// База: переменные и сброс
+@use "base/variables";
+@use "base/base";
+
+// Блоки (в порядке появления на странице)
+@use "blocks/header";
+@use "blocks/hero";
+@use "blocks/cats";
+@use "blocks/section";
+@use "blocks/filters";
+@use "blocks/card";
+@use "blocks/features";
+@use "blocks/footer";
+@use "blocks/cart";
+
+// Утилиты: анимации и адаптив (идут последними)
+@use "utils/animations";
+@use "utils/media";
