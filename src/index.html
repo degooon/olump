@@ -5,123 +5,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Мебельный склад «Олимп» — мебель для дома</title>
 <meta name="description" content="Мебельный склад «Олимп»: диваны, кресла, столы и кровати в наличии. Каталог с фильтрами, доставка по России, гарантия 5 лет.">
+
+<link rel="icon" href="./favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<meta name="theme-color" content="#B14E2B">
+
+<!--
+  Превью ссылки в Telegram, MAX, VK и других соцсетях.
+  og:url и og:image требуют полного адреса — при переезде на свой домен
+  замени https://degooon.github.io/olump/ на него.
+-->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Мебельный склад «Олимп»">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Мебельный склад «Олимп» — мебель для дома">
+<meta property="og:description" content="Диваны, кресла, столы и кровати в наличии. Доставка по России, сборка под ключ, гарантия 5 лет.">
+<meta property="og:url" content="https://degooon.github.io/olump/">
+<meta property="og:image" content="https://degooon.github.io/olump/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Мебельный склад «Олимп»">
+<meta name="twitter:card" content="summary_large_image">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="./styles/style.scss">
+
+<!--
+  Блоки с классом reveal ждут скрипта, который покажет их при прокрутке.
+  Если скриптов нет — показываем сразу, иначе текст просто не увидят.
+  important обязателен: сборщик вставляет свою таблицу стилей ниже этой,
+  и без него правило с той же силой, но идущее позже, перекрыло бы наше.
+-->
+<noscript><style>.reveal { opacity: 1 !important; }</style></noscript>
 </head>
 <body>
 
-<!-- SVG-библиотека: иконки и иллюстрации мебели -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <defs>
-    <!-- Иконки (обводка) -->
-    <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.6 12 20l-7.5-7.4A5.2 5.2 0 1 1 12 5.7a5.2 5.2 0 1 1 7.5 6.9Z"/></g></symbol>
-    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8h11l.9 11.2a1.5 1.5 0 0 1-1.5 1.6H7.1a1.5 1.5 0 0 1-1.5-1.6L6.5 8Z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></g></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12.5l4.8 4.8L19.5 7"/></g></symbol>
-    <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></g></symbol>
-    <symbol id="i-filter" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M19 7h1M4 17h4M12 17h8"/><circle cx="15" cy="7" r="2.2"/><circle cx="9" cy="17" r="2.2"/></g></symbol>
-    <symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></g></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h15M13.5 6l6 6-6 6"/></g></symbol>
-    <symbol id="i-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></g></symbol>
-    <symbol id="i-box" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 20 7.5v9L12 21 4 16.5v-9L12 3Z"/><path d="M12 12l8-4.5M12 12 4 7.5M12 12v9"/></g></symbol>
-    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3.2V12c0 4.4-3 7.4-7 8.8-4-1.4-7-4.4-7-8.8V6.2L12 3Z"/><path d="M9 12l2.2 2.2L15.5 10"/></g></symbol>
-
-    <!-- Иллюстрации мебели (заливка через --tint) -->
-    <symbol id="i-sofa" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="136" rx="62" ry="7" fill="rgba(38,34,28,.08)"/>
-      <rect x="44" y="46" width="112" height="42" rx="12" fill="var(--tint)"/>
-      <line x1="100" y1="52" x2="100" y2="78" stroke="rgba(38,34,28,.18)" stroke-width="2"/>
-      <rect x="54" y="54" width="26" height="22" rx="7" fill="rgba(255,255,255,.45)"/>
-      <rect x="26" y="60" width="20" height="54" rx="10" fill="var(--tint)"/>
-      <rect x="154" y="60" width="20" height="54" rx="10" fill="var(--tint)"/>
-      <rect x="48" y="80" width="104" height="32" rx="10" fill="var(--tint)"/>
-      <rect x="48" y="80" width="104" height="10" rx="5" fill="rgba(255,255,255,.28)"/>
-      <rect x="52" y="112" width="7" height="16" rx="3" fill="#54493B"/>
-      <rect x="141" y="112" width="7" height="16" rx="3" fill="#54493B"/>
-    </symbol>
-    <symbol id="i-armchair" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="136" rx="48" ry="6" fill="rgba(38,34,28,.08)"/>
-      <rect x="68" y="34" width="64" height="58" rx="16" fill="var(--tint)"/>
-      <rect x="76" y="43" width="48" height="22" rx="9" fill="rgba(255,255,255,.35)"/>
-      <rect x="52" y="66" width="18" height="44" rx="9" fill="var(--tint)"/>
-      <rect x="130" y="66" width="18" height="44" rx="9" fill="var(--tint)"/>
-      <rect x="66" y="88" width="68" height="24" rx="9" fill="var(--tint)"/>
-      <rect x="66" y="88" width="68" height="8" rx="4" fill="rgba(255,255,255,.28)"/>
-      <line x1="74" y1="112" x2="66" y2="132" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
-      <line x1="126" y1="112" x2="134" y2="132" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
-    </symbol>
-    <symbol id="i-table" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="136" rx="58" ry="6" fill="rgba(38,34,28,.08)"/>
-      <path d="M96 46c-9-3-13-10-12-18 8 0 13 6 14 12" fill="#8A8B67"/>
-      <path d="M104 46c9-3 13-10 12-18-8 0-13 6-14 12" fill="#8A8B67"/>
-      <path d="M92 47h16l-2.5 15h-11z" fill="#EFE5D2" stroke="rgba(38,34,28,.15)"/>
-      <rect x="34" y="62" width="132" height="13" rx="6.5" fill="var(--tint)"/>
-      <rect x="42" y="75" width="116" height="6" rx="3" fill="rgba(38,34,28,.10)"/>
-      <rect x="48" y="75" width="9" height="55" rx="3" fill="var(--tint)"/>
-      <rect x="143" y="75" width="9" height="55" rx="3" fill="var(--tint)"/>
-    </symbol>
-    <symbol id="i-chair" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="136" rx="40" ry="5" fill="rgba(38,34,28,.08)"/>
-      <rect x="76" y="30" width="48" height="46" rx="10" fill="var(--tint)"/>
-      <rect x="84" y="39" width="32" height="5" rx="2.5" fill="rgba(255,255,255,.4)"/>
-      <rect x="84" y="50" width="32" height="5" rx="2.5" fill="rgba(255,255,255,.4)"/>
-      <rect x="68" y="76" width="64" height="13" rx="6" fill="var(--tint)"/>
-      <line x1="76" y1="89" x2="70" y2="130" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
-      <line x1="124" y1="89" x2="130" y2="130" stroke="#54493B" stroke-width="5" stroke-linecap="round"/>
-      <line x1="90" y1="89" x2="88" y2="127" stroke="#54493B" stroke-width="5" stroke-linecap="round" opacity=".5"/>
-      <line x1="110" y1="89" x2="112" y2="127" stroke="#54493B" stroke-width="5" stroke-linecap="round" opacity=".5"/>
-    </symbol>
-    <symbol id="i-bed" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="138" rx="70" ry="6" fill="rgba(38,34,28,.08)"/>
-      <rect x="42" y="34" width="116" height="56" rx="14" fill="var(--tint)"/>
-      <rect x="52" y="42" width="96" height="18" rx="8" fill="rgba(255,255,255,.30)"/>
-      <rect x="34" y="84" width="132" height="30" rx="10" fill="#F3EADB"/>
-      <rect x="34" y="84" width="132" height="30" rx="10" fill="none" stroke="rgba(38,34,28,.12)"/>
-      <rect x="48" y="70" width="42" height="20" rx="8" fill="#FFFFFF" stroke="rgba(38,34,28,.12)"/>
-      <path d="M34 98h132v6a10 10 0 0 1-10 10H44a10 10 0 0 1-10-10z" fill="var(--tint)"/>
-      <rect x="40" y="114" width="7" height="14" rx="3" fill="#54493B"/>
-      <rect x="153" y="114" width="7" height="14" rx="3" fill="#54493B"/>
-    </symbol>
-    <symbol id="i-wardrobe" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="138" rx="52" ry="6" fill="rgba(38,34,28,.08)"/>
-      <rect x="58" y="30" width="84" height="8" rx="4" fill="var(--tint)"/>
-      <rect x="58" y="30" width="84" height="8" rx="4" fill="rgba(38,34,28,.18)"/>
-      <rect x="62" y="38" width="76" height="88" rx="6" fill="var(--tint)"/>
-      <line x1="100" y1="42" x2="100" y2="122" stroke="rgba(255,255,255,.5)" stroke-width="2.5"/>
-      <rect x="66" y="46" width="26" height="4" rx="2" fill="rgba(255,255,255,.30)"/>
-      <rect x="108" y="46" width="26" height="4" rx="2" fill="rgba(255,255,255,.30)"/>
-      <rect x="92" y="74" width="4" height="14" rx="2" fill="rgba(38,34,28,.35)"/>
-      <rect x="104" y="74" width="4" height="14" rx="2" fill="rgba(38,34,28,.35)"/>
-      <rect x="66" y="126" width="8" height="10" rx="3" fill="#54493B"/>
-      <rect x="126" y="126" width="8" height="10" rx="3" fill="#54493B"/>
-    </symbol>
-    <symbol id="i-shelf" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="138" rx="52" ry="6" fill="rgba(38,34,28,.08)"/>
-      <rect x="58" y="28" width="7" height="104" rx="3" fill="var(--tint)"/>
-      <rect x="135" y="28" width="7" height="104" rx="3" fill="var(--tint)"/>
-      <rect x="58" y="56" width="84" height="6" rx="3" fill="var(--tint)"/>
-      <rect x="58" y="90" width="84" height="6" rx="3" fill="var(--tint)"/>
-      <rect x="58" y="124" width="84" height="6" rx="3" fill="var(--tint)"/>
-      <rect x="72" y="36" width="7" height="20" rx="2" fill="#B14E2B"/>
-      <rect x="81" y="34" width="7" height="22" rx="2" fill="#D8C3A0"/>
-      <rect x="90" y="38" width="7" height="18" rx="2" fill="#8A8B67"/>
-      <rect x="70" y="70" width="7" height="20" rx="2" fill="#54493B"/>
-      <rect x="79" y="72" width="7" height="18" rx="2" fill="#B14E2B"/>
-      <rect x="112" y="66" width="6" height="8" rx="2" fill="#EFE5D2"/>
-      <ellipse cx="115" cy="80" rx="8" ry="10" fill="#EFE5D2"/>
-      <rect x="98" y="104" width="26" height="20" rx="3" fill="#D8C3A0"/>
-      <line x1="98" y1="112" x2="124" y2="112" stroke="rgba(38,34,28,.15)" stroke-width="2"/>
-    </symbol>
-    <symbol id="i-lamp" viewBox="0 0 200 150">
-      <ellipse cx="100" cy="136" rx="34" ry="5" fill="rgba(38,34,28,.08)"/>
-      <path d="M80 34h40l12 32H68z" fill="var(--tint)"/>
-      <path d="M80 34h40l4 11H76z" fill="rgba(255,255,255,.25)"/>
-      <rect x="97" y="66" width="6" height="56" rx="3" fill="#54493B"/>
-      <ellipse cx="100" cy="126" rx="24" ry="6" fill="#54493B"/>
-    </symbol>
-  </defs>
-</svg>
 
 <!-- Шапка -->
 <header class="header">
@@ -158,13 +78,17 @@
         <path transform="translate(394.88 260.08) scale(0.01550 -0.01550)" d="M60 -240V254Q125 254 170.5 286.5Q216 319 245.0 378.5Q274 438 291.0 518.0Q308 598 316 692Q326 812 334.0 928.5Q342 1045 350.0 1170.5Q358 1296 368 1442L1324 1440V254H1434V-240H1162V0H332V-240ZM466 254H1052V1186L616 1188Q609 1089 604.5 1006.0Q600 923 594.0 838.0Q588 753 578 648Q568 543 558.0 475.5Q548 408 527.5 358.0Q507 308 466 254Z" fill="#FFFFFF"/>
       </svg>
     </a>
-    <nav class="nav" aria-label="Основная навигация">
-      <a href="#catalog">Каталог</a>
-      <a href="#features">Преимущества</a>
-      <a href="#contacts">Контакты</a>
+    <button class="burger" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Меню">
+      <svg class="icon burger__open" aria-hidden="true"><use href="/__spritemap#i-menu"/></svg>
+      <svg class="icon burger__close" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
+    </button>
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <a class="nav__link" href="#catalog">Каталог</a>
+      <a class="nav__link" href="#features">Преимущества</a>
+      <a class="nav__link" href="#contacts">Контакты</a>
     </nav>
     <button class="header__cart" type="button" id="cart-open" aria-haspopup="dialog" aria-controls="cart-drawer" aria-label="Корзина">
-      <svg class="icon" aria-hidden="true"><use href="#i-bag"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-bag"/></svg>
       <span class="header__cart-label">Корзина</span>
       <span class="header__count" id="cart-count" hidden>0</span>
     </button>
@@ -179,27 +103,26 @@
       <span class="hero__omega" aria-hidden="true">&Omega;</span>
       <div class="hero__inner">
         <div>
-          <span class="eyebrow">Мебельный склад</span>
-          <h1 class="hero__title">Мебель, достойная <em>Олимпа</em></h1>
-          <p class="hero__text">Диваны, кресла и столы из массива и честных тканей. Делаем сами, доставляем по всей России и даём гарантию 5&nbsp;лет — потому что уверены в каждом шве.</p>
-          <div class="hero__actions">
+          <span class="eyebrow reveal">Мебельный склад</span>
+          <h1 class="hero__title reveal">Мебель, достойная <em class="hero__accent">Олимпа</em></h1>
+          <p class="hero__text reveal">Диваны, кресла и столы из массива и честных тканей. Делаем сами, доставляем по всей России и даём гарантию 5&nbsp;лет — потому что уверены в каждом шве.</p>
+          <div class="hero__actions reveal">
             <a class="btn btn--primary" href="#catalog">Смотреть каталог
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-arrow"/></svg>
             </a>
             <a class="btn btn--ghost" href="#features">Доставка и гарантия</a>
           </div>
-          <div class="hero__stats">
+          <div class="hero__stats reveal">
             <div class="stat"><div class="stat__num">12 лет</div><div class="stat__label">делаем мебель</div></div>
-            <div class="stat"><div class="stat__num">4 800+</div><div class="stat__label">довольных клиентов</div></div>
             <div class="stat"><div class="stat__num">5 лет</div><div class="stat__label">гарантии на всё</div></div>
           </div>
         </div>
-        <div class="hero__scene">
+        <div class="hero__scene reveal">
           <div class="hero__arch">
-            <svg class="hero__item" viewBox="0 0 200 150" style="--tint:#C0653F" role="img" aria-label="Кресло «Арго»"><use href="#i-armchair"/></svg>
+            <svg class="hero__item" viewBox="0 0 200 150" style="--tint:#C0653F" role="img" aria-label="Кресло «Арго»"><use href="/__spritemap#i-armchair"/></svg>
           </div>
-          <svg class="hero__lamp" viewBox="0 0 200 150" style="--tint:#8A8B67" aria-hidden="true"><use href="#i-lamp"/></svg>
-          <div class="hero__tag">Кресло «Арго»<b>24 900 ₽</b></div>
+          <svg class="hero__lamp" viewBox="0 0 200 150" style="--tint:#8A8B67" aria-hidden="true"><use href="/__spritemap#i-lamp"/></svg>
+          <div class="hero__tag">Кресло «Арго»<b class="hero__tag-price">24 900 ₽</b></div>
         </div>
       </div>
     </div>
@@ -208,14 +131,15 @@
   <!-- Быстрые категории -->
   <section class="cats" aria-label="Категории каталога">
     <div class="container">
-      <div class="cats__grid">
-        <button class="cat" type="button" data-cat="sofa" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-sofa"/></svg><span>Диваны</span></button>
-        <button class="cat" type="button" data-cat="armchair" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-armchair"/></svg><span>Кресла</span></button>
-        <button class="cat" type="button" data-cat="table" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-table"/></svg><span>Столы</span></button>
-        <button class="cat" type="button" data-cat="chair" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-chair"/></svg><span>Стулья</span></button>
-        <button class="cat" type="button" data-cat="bed" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-bed"/></svg><span>Кровати</span></button>
-        <button class="cat" type="button" data-cat="storage" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-wardrobe"/></svg><span>Шкафы</span></button>
-        <button class="cat" type="button" data-cat="light" style="--tint:#D9C7A7"><svg viewBox="0 0 200 150" aria-hidden="true"><use href="#i-lamp"/></svg><span>Свет</span></button>
+      <div class="cats__scroller">
+        <button class="cats__arrow cats__arrow--prev" type="button" id="cats-prev" aria-label="Показать предыдущие категории" hidden>
+          <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-arrow"/></svg>
+        </button>
+        <!-- Плитки категорий собирает cats.js из списка CATEGORIES в data.js -->
+        <div class="cats__grid" id="cats-grid"></div>
+        <button class="cats__arrow cats__arrow--next" type="button" id="cats-next" aria-label="Показать следующие категории" hidden>
+          <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-arrow"/></svg>
+        </button>
       </div>
     </div>
   </section>
@@ -223,13 +147,13 @@
   <!-- Каталог -->
   <section class="section" id="catalog">
     <div class="container">
-      <div class="section__head">
+      <div class="section__head reveal">
         <div>
           <span class="eyebrow">Каталог</span>
           <h2 class="section__title">Выберите свою мебель</h2>
         </div>
         <button class="filters-toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
-          <svg class="icon" aria-hidden="true"><use href="#i-filter"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-filter"/></svg>
           Фильтры
         </button>
       </div>
@@ -241,59 +165,37 @@
           <form id="filters-form">
             <div class="search">
               <label class="visually-hidden" for="search">Поиск по каталогу</label>
-              <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-              <input type="search" id="search" name="q" placeholder="Поиск по каталогу" autocomplete="off">
+              <svg class="icon search__icon" aria-hidden="true"><use href="/__spritemap#i-search"/></svg>
+              <input class="search__input" type="search" id="search" name="q" placeholder="Поиск по каталогу" autocomplete="off">
             </div>
 
             <div class="fgroup" role="group" aria-labelledby="f-cat">
               <h3 class="fgroup__title" id="f-cat">Категория</h3>
-              <div class="chips">
-                <label class="chip"><input type="radio" name="cat" value="all" checked><span>Все</span></label>
-                <label class="chip"><input type="radio" name="cat" value="sofa"><span>Диваны</span></label>
-                <label class="chip"><input type="radio" name="cat" value="armchair"><span>Кресла</span></label>
-                <label class="chip"><input type="radio" name="cat" value="table"><span>Столы</span></label>
-                <label class="chip"><input type="radio" name="cat" value="chair"><span>Стулья</span></label>
-                <label class="chip"><input type="radio" name="cat" value="bed"><span>Кровати</span></label>
-                <label class="chip"><input type="radio" name="cat" value="storage"><span>Шкафы</span></label>
-                <label class="chip"><input type="radio" name="cat" value="light"><span>Свет</span></label>
+              <!-- Переключатели собирает catalog.js из того же списка CATEGORIES -->
+              <div class="chips" id="cat-chips"></div>
+            </div>
+
+            <div class="fgroup" role="group" aria-labelledby="f-price">
+              <h3 class="fgroup__title" id="f-price">Цена, ₽</h3>
+              <div class="price-range">
+                <span class="price-range__field">
+                  <label class="price-range__label" for="price-min">от</label>
+                  <input class="price-range__input" type="number" id="price-min" name="min" inputmode="numeric" min="0" autocomplete="off">
+                </span>
+                <span class="price-range__dash" aria-hidden="true">—</span>
+                <span class="price-range__field">
+                  <label class="price-range__label" for="price-max">до</label>
+                  <input class="price-range__input" type="number" id="price-max" name="max" inputmode="numeric" min="0" autocomplete="off">
+                </span>
               </div>
             </div>
 
-            <div class="fgroup">
-              <div class="fgroup__title-row">
-                <h3 class="fgroup__title" id="f-price">Цена, до</h3>
-                <output class="range__val" id="price-out" for="price-range"></output>
-              </div>
-              <input type="range" id="price-range" name="max" min="5000" max="90000" step="1000" value="90000" aria-labelledby="f-price">
-              <div class="range__row"><span>5 000 ₽</span><span>90 000 ₽</span></div>
-            </div>
-
-            <div class="fgroup" role="group" aria-labelledby="f-color">
-              <h3 class="fgroup__title" id="f-color">Цвет</h3>
-              <div class="swatches">
-                <label class="swatch"><input type="checkbox" name="color" value="graphite"><span class="swatch__dot" style="background:#4A4642"></span><span class="swatch__name">Графит</span></label>
-                <label class="swatch"><input type="checkbox" name="color" value="beige"><span class="swatch__dot" style="background:#D8C3A0"></span><span class="swatch__name">Бежевый</span></label>
-                <label class="swatch"><input type="checkbox" name="color" value="terra"><span class="swatch__dot" style="background:#C0653F"></span><span class="swatch__name">Терракота</span></label>
-                <label class="swatch"><input type="checkbox" name="color" value="olive"><span class="swatch__dot" style="background:#8A8B67"></span><span class="swatch__name">Олива</span></label>
-              </div>
-            </div>
-
-            <div class="fgroup" role="group" aria-labelledby="f-mat">
-              <h3 class="fgroup__title" id="f-mat">Материал</h3>
-              <div class="checks">
-                <label class="check"><input type="checkbox" name="mat" value="fabric">Ткань</label>
-                <label class="check"><input type="checkbox" name="mat" value="velour">Велюр</label>
-                <label class="check"><input type="checkbox" name="mat" value="wood">Дерево</label>
-                <label class="check"><input type="checkbox" name="mat" value="metal">Металл</label>
-              </div>
-            </div>
-
-            <div class="fgroup">
-              <label class="check"><input type="checkbox" name="stock">Только в наличии</label>
+                                    <div class="fgroup">
+              <label class="check"><input class="check__input" type="checkbox" name="stock">Только в наличии</label>
             </div>
 
             <button class="filters__reset" type="reset">
-              <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
               Сбросить фильтры
             </button>
           </form>
@@ -305,23 +207,40 @@
             <span class="toolbar__count" id="count" role="status"></span>
             <div class="toolbar__right">
               <div class="sortwrap">
-                <label for="sort">Сортировка</label>
-                <select class="sort" id="sort">
-                  <option value="pop">По популярности</option>
-                  <option value="asc">Сначала дешевле</option>
-                  <option value="desc">Сначала дороже</option>
-                  <option value="new">Сначала новинки</option>
-                </select>
+                <span class="sortwrap__label" id="sort-label">Сортировка</span>
+                <!--
+                  Свой список вместо select: системный на iOS выглядит иначе
+                  и открывается барабаном снизу. Роли и клавиатура — в sort.js
+                -->
+                <div class="sort" id="sort" data-value="pop">
+                  <button class="sort__button" type="button" id="sort-button" role="combobox"
+                    aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-list"
+                    aria-labelledby="sort-label sort-button">
+                    <span class="sort__value" id="sort-value">По популярности</span>
+                    <svg class="icon sort__chevron" aria-hidden="true"><use href="/__spritemap#i-chevron"/></svg>
+                  </button>
+                  <ul class="sort__list" id="sort-list" role="listbox" aria-labelledby="sort-label" hidden>
+                    <li class="sort__option" id="sort-pop" role="option" data-value="pop" aria-selected="true">По популярности</li>
+                    <li class="sort__option" id="sort-asc" role="option" data-value="asc" aria-selected="false">Сначала дешевле</li>
+                    <li class="sort__option" id="sort-desc" role="option" data-value="desc" aria-selected="false">Сначала дороже</li>
+                    <li class="sort__option" id="sort-new" role="option" data-value="new" aria-selected="false">Сначала новинки</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
 
           <div class="grid" id="grid"></div>
 
+          <!-- Каталог выводится порциями: подпись кнопки ставит catalog.js -->
+          <div class="more" id="more" hidden>
+            <button class="btn btn--ghost" type="button" id="more-btn"></button>
+          </div>
+
           <div class="empty" id="empty">
-            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
-            <h3>Ничего не нашлось</h3>
-            <p>Попробуйте смягчить условия — например, поднять планку цены или убрать часть фильтров.</p>
+            <svg class="icon empty__icon" aria-hidden="true"><use href="/__spritemap#i-search"/></svg>
+            <h3 class="empty__title">Ничего не нашлось</h3>
+            <p class="empty__text">Попробуйте смягчить условия — например, поднять планку цены или убрать часть фильтров.</p>
             <button class="btn btn--ghost" type="button" id="empty-reset">Сбросить фильтры</button>
           </div>
         </div>
@@ -334,17 +253,17 @@
   <section class="features" id="features" aria-label="Преимущества">
     <div class="container">
       <div class="features__grid">
-        <div class="feature">
-          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg></div>
-          <div><h3>Доставка по России</h3><p>До двери за 3–7 дней. Бережно упакуем и поднимем на этаж.</p></div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="/__spritemap#i-truck"/></svg></div>
+          <div><h3 class="feature__title">Доставка по России</h3><p class="feature__text">До двери за 3–7 дней. Бережно упакуем и поднимем на этаж.</p></div>
         </div>
-        <div class="feature">
-          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-box"/></svg></div>
-          <div><h3>Сборка под ключ</h3><p>Мастер соберёт мебель и заберёт упаковку с собой.</p></div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="/__spritemap#i-box"/></svg></div>
+          <div><h3 class="feature__title">Сборка под ключ</h3><p class="feature__text">Мастер соберёт мебель и заберёт упаковку с собой.</p></div>
         </div>
-        <div class="feature">
-          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg></div>
-          <div><h3>Гарантия 5 лет</h3><p>На каркас, механизмы и фурнитуру — без мелкого шрифта.</p></div>
+        <div class="feature reveal">
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="/__spritemap#i-shield"/></svg></div>
+          <div><h3 class="feature__title">Гарантия 5 лет</h3><p class="feature__text">На каркас, механизмы и фурнитуру — без мелкого шрифта.</p></div>
         </div>
       </div>
     </div>
@@ -392,18 +311,17 @@
         <p class="footer__about">Проектируем и производим мебель, которая переживает моду: спокойные формы, массив дерева и ткани, приятные на ощупь.</p>
       </div>
       <div>
-        <h4>Навигация</h4>
-        <ul>
-          <li><a href="#catalog">Каталог</a></li>
-          <li><a href="#features">Доставка и сборка</a></li>
-          <li><a href="#features">Гарантия</a></li>
+        <h4 class="footer__heading">Навигация</h4>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="#catalog">Каталог</a></li>
+          <li><a class="footer__link" href="#features">Доставка и сборка</a></li>
+          <li><a class="footer__link" href="#features">Гарантия</a></li>
         </ul>
       </div>
       <div>
-        <h4>Контакты</h4>
-        <ul>
-          <li><a href="tel:+78000000000">+7 (800) 000-00-00</a></li>
-          <li><a href="mailto:hello@olimp-mebel.ru">hello@olimp-mebel.ru</a></li>
+        <h4 class="footer__heading">Контакты</h4>
+        <ul class="footer__list">
+          <li><a class="footer__link" href="tel:+79620018222">+7 (962) 001-82-22</a></li>
           <li>Ежедневно с 10:00 до 20:00</li>
         </ul>
       </div>
@@ -415,27 +333,48 @@
   </div>
 </footer>
 
+<!-- Окно товара: крупное изображение и характеристики -->
+<div class="product-overlay" id="product-overlay" hidden></div>
+<div class="product" id="product" role="dialog" aria-modal="true" hidden>
+  <button class="product__close" type="button" id="product-close" aria-label="Закрыть карточку товара">
+    <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
+  </button>
+  <div class="product__inner" id="product-inner"></div>
+</div>
+
 <!-- Панель корзины -->
 <div class="cart-overlay" id="cart-overlay" hidden></div>
 <aside class="cart" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" hidden>
   <div class="cart__head">
     <h2 class="cart__title" id="cart-title">Корзина</h2>
     <button class="cart__close" type="button" id="cart-close" aria-label="Закрыть корзину">
-      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
     </button>
   </div>
   <div class="cart__list" id="cart-items"></div>
   <div class="cart__empty" id="cart-empty">
     <p>В корзине пока пусто</p>
-    <button class="btn btn--ghost" type="button" id="cart-to-catalog">Перейти в каталог</button>
+    <button class="btn btn--ghost cart__to-catalog" type="button" id="cart-to-catalog">Перейти в каталог</button>
   </div>
   <div class="cart__foot" id="cart-foot">
     <div class="cart__total"><span>Итого</span><span id="cart-total">0 ₽</span></div>
-    <button class="cart__order" type="button" id="cart-order">
-      <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg>
-      Оформить заказ
+    <a class="cart__order" id="cart-call" href="tel:">
+      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-phone"/></svg>
+      Позвонить и заказать
+    </a>
+    <a class="cart__order cart__order--soft" id="cart-sms" href="sms:">
+      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-chat"/></svg>
+      Написать в SMS
+    </a>
+    <button class="cart__order cart__order--soft" type="button" id="cart-max" hidden>
+      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-arrow"/></svg>
+      Написать в MAX
     </button>
-    <p class="cart__hint">Откроется WhatsApp с готовым списком заказа</p>
+    <p class="cart__hint" id="cart-hint">Назовём цену, сроки и договоримся о доставке</p>
+    <button class="cart__copy" type="button" id="cart-copy">
+      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-copy"/></svg>
+      Скопировать список заказа
+    </button>
   </div>
 </aside>
 

@@ -1,0 +1,57 @@
+// ─── Цена: два поля «от» и «до» ───
+.price-range {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-range__field {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0; // иначе поле распирает флекс-колонку на узких экранах
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+
+.price-range__field:focus-within {
+  border-color: var(--accent);
+}
+
+.price-range__label {
+  font-size: 13px;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.price-range__input {
+  width: 100%;
+  min-width: 0;
+  // Тянем на всю высоту поля: иначе тап мимо строки текста не ставит курсор
+  align-self: stretch;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-size: 14.5px;
+  font-weight: 700;
+  appearance: textfield; // прячем стрелки-счётчик: они ломают компактное поле
+}
+
+.price-range__input:focus {
+  outline: none;
+}
+
+.price-range__input::-webkit-outer-spin-button,
+.price-range__input::-webkit-inner-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.price-range__dash {
+  color: var(--muted);
+}

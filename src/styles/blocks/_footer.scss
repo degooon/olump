@@ -1,4 +1,6 @@
 // ─── Подвал ───
+@use "../mixins" as *;
+
 .footer {
   background: var(--ink);
   color: #efe9dc;
@@ -14,14 +16,6 @@
   border-bottom: 1px solid rgba(239, 233, 220, 0.16);
 }
 
-.footer .logo__name {
-  color: #f6f1e7;
-}
-
-.footer .logo__text small {
-  color: rgba(246, 241, 231, 0.55);
-}
-
 .footer__about {
   color: rgba(239, 233, 220, 0.7);
   font-size: 14.5px;
@@ -29,7 +23,7 @@
   margin: 16px 0 0;
 }
 
-.footer h4 {
+.footer__heading {
   margin: 4px 0 14px;
   font-size: 12px;
   font-weight: 800;
@@ -38,22 +32,28 @@
   color: rgba(239, 233, 220, 0.5);
 }
 
-.footer ul {
+.footer__list {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  gap: 9px;
+  gap: 2px; // пункты-ссылки сами по 44px, лишний отступ между ними не нужен
   font-size: 15px;
 }
 
-.footer a {
+// Ссылки в подвале — строки текста высотой всего 21px, попасть пальцем трудно.
+// Растягиваем каждую до 44px, а отступ между пунктами убираем: высота списка
+// почти не меняется, зато промахнуться уже негде.
+.footer__link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
   transition: color 0.2s;
-}
 
-.footer a:hover {
-  color: #ffffff;
-  text-decoration: underline;
+  @include hover {
+    color: #ffffff;
+    text-decoration: underline;
+  }
 }
 
 .footer__bottom {

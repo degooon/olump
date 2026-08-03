@@ -3,6 +3,35 @@
     "stylelint-config-htmlacademy"
   ],
   "rules": {
-    "no-unknown-custom-properties": null
-  }
+    "no-unknown-custom-properties": null,
+
+    "selector-class-pattern": [
+      "^[a-z][a-z0-9]*(-[a-z0-9]+)*(__[a-z][a-z0-9]*(-[a-z0-9]+)*)?(--[a-z][a-z0-9]*(-[a-z0-9]+)*)?$",
+      {
+        "message": "Имя класса должно быть по БЭМ: блок, блок__элемент, блок--модификатор или блок__элемент--модификатор (строчные буквы и дефисы)"
+      }
+    ],
+
+    "selector-max-compound-selectors": 2,
+    "selector-max-specificity": "0,3,1",
+    "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],
+    "no-descending-specificity": true,
+    "no-duplicate-selectors": true,
+
+    "selector-max-type": [
+      0,
+      {
+        "message": "Селектор по тегу: по БЭМ элемент оформляется своим классом"
+      }
+    ]
+  },
+
+  "overrides": [
+    {
+      "files": ["src/styles/base/**/*.scss", "src/styles/utils/_animations.scss"],
+      "rules": {
+        "selector-max-type": null
+      }
+    }
+  ]
 }

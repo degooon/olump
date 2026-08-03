@@ -10,6 +10,9 @@
   --accent-dark: #93401f;
   --accent-soft: #f4e3d7;
   --olive: #8a8b67;
+  // Заливка рисованных иллюстраций мебели. Раньше зависела от цвета товара,
+  // теперь единая для всего каталога — символы спрайта берут её отсюда.
+  --tint: #d9c7a7;
   --shadow: 0 12px 30px -14px rgba(38, 34, 28, 0.22);
   --radius: 16px;
   --font-d: "Prata", georgia, "Times New Roman", serif;

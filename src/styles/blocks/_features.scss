@@ -1,4 +1,4 @@
-// ─── Преимущества ───
+// ─── Блок преимуществ ───
 .features {
   padding: 6px 0 70px;
 }
@@ -7,35 +7,4 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-}
-
-.feature {
-  display: flex;
-  gap: 16px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 22px;
-}
-
-.feature__icon {
-  width: 48px;
-  height: 48px;
-  flex: none;
-  border-radius: 14px;
-  background: var(--accent-soft);
-  color: var(--accent-dark);
-  display: grid;
-  place-items: center;
-}
-
-.feature h3 {
-  margin: 0 0 4px;
-  font-size: 16.5px;
-}
-
-.feature p {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14.5px;
 }

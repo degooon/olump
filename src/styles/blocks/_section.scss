@@ -17,11 +17,3 @@
   font-size: clamp(28px, 3.4vw, 38px);
   margin: 10px 0 0;
 }
-
-// ─── Каталог: раскладка ───
-.catalog__layout {
-  display: grid;
-  grid-template-columns: 264px 1fr;
-  gap: 30px;
-  align-items: start;
-}

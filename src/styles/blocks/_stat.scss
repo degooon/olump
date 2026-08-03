@@ -1,0 +1,12 @@
+// ─── Цифра с подписью (в герое) ───
+.stat__num {
+  font-family: var(--font-d);
+  font-size: 29px;
+  line-height: 1.2;
+}
+
+.stat__label {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 2px;
+}

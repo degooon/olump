@@ -1,0 +1,40 @@
+// ─── Плитка категории ───
+@use "../mixins" as *;
+
+.cat {
+  // Растёт, когда места хватает на все категории, но не сжимается ниже 126px —
+  // иначе на телефоне плитки схлопнулись бы вместо прокрутки
+  flex: 1 0 126px;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 8px 12px;
+  // Подъём при ховере — через translate, а не transform: transform занят
+  // анимацией появления (кейфрейм fadeUp), и transition на нём тормозил бы
+  // каждый её кадр
+  transition: border-color 0.2s, box-shadow 0.2s, translate 0.2s;
+
+  @include hover {
+    border-color: var(--ink);
+    box-shadow: var(--shadow);
+    translate: 0 -2px;
+  }
+}
+
+// Иконка растёт вместе с плиткой, но в разумных пределах: на широком экране
+// плитка доходит до 190px, и фиксированные 66px терялись бы в ней.
+// height: auto — высоту SVG берёт из viewBox, пропорция не искажается.
+.cat__icon {
+  width: clamp(64px, 58%, 96px);
+  height: auto;
+}
+
+.cat__label {
+  font-size: 13.5px;
+  font-weight: 700;
+}

@@ -1,0 +1,37 @@
+// ─── Кнопка-ссылка ───
+// Используется в герое, пустом состоянии каталога и корзине
+@use "../mixins" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn--primary {
+  background: var(--ink);
+  color: var(--bg);
+
+  @include hover {
+    background: var(--accent-dark);
+    color: #ffffff;
+  }
+}
+
+.btn--ghost {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+
+  @include hover {
+    border-color: var(--ink);
+  }
+}
+

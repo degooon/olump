@@ -1,0 +1,7 @@
+// ─── Каталог: раскладка «фильтры + витрина» ───
+.catalog__layout {
+  display: grid;
+  grid-template-columns: 264px 1fr;
+  gap: 30px;
+  align-items: start;
+}

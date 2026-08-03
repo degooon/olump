@@ -1,0 +1,82 @@
+// ─── Окно товара: крупное изображение ───
+@use "../mixins" as *;
+
+.product {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 120;
+  width: min(720px, calc(100vw - 40px));
+  max-height: calc(100vh - 40px);
+  overflow: hidden;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 70px -30px rgba(38, 34, 28, 0.5);
+  // Стартовое состояние: чуть уменьшено и смещено вверх, дальше «всплывает»
+  translate: -50% -46%;
+  scale: 0.97;
+  opacity: 0;
+  transition: translate 0.25s, scale 0.25s, opacity 0.25s;
+}
+
+.product--open {
+  translate: -50% -50%;
+  scale: 1;
+  opacity: 1;
+}
+
+.product[hidden] {
+  display: none;
+}
+
+.product__close {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 2px 10px -4px rgba(38, 34, 28, 0.4);
+  transition: background-color 0.2s;
+
+  @include hover {
+    background: var(--paper);
+  }
+}
+
+.product__inner {
+  display: grid;
+  place-items: center;
+  padding: 48px;
+  background: var(--paper);
+}
+
+// Реальное фото заполняет окно целиком, без полей и подложки
+.product__inner--photo {
+  padding: 0;
+}
+
+.product__illustration {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+}
+
+.product__photo {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 40px);
+  object-fit: contain;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .product {
+    transition: none;
+  }
+}

@@ -1,0 +1,37 @@
+// ─── Счётчик количества «− N +» ───
+@use "../mixins" as *;
+
+.qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.qty__btn {
+  // Цель под палец: не меньше 44px
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+
+  @include hover(":not(:disabled)") {
+    background: var(--paper);
+  }
+}
+
+.qty__btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.qty__value {
+  min-width: 28px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14.5px;
+}

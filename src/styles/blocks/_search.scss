@@ -1,0 +1,31 @@
+// ─── Поле поиска по каталогу ───
+.search {
+  position: relative;
+  margin-bottom: 4px;
+}
+
+.search__input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px 10px 42px;
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+
+.search__input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+// Микс на иконке: размер даёт утилита .icon, положение — блок.
+// Специфичность равна .icon, перекрывает за счёт порядка (база раньше блоков)
+.search__icon {
+  position: absolute;
+  left: 13px;
+  top: 50%;
+  translate: 0 -50%;
+  color: var(--muted);
+  pointer-events: none;
+}

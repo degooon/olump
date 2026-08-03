@@ -1,0 +1,24 @@
+// ─── Цена товара ───
+.price {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.price__now {
+  font-weight: 800;
+  font-size: 17.5px;
+}
+
+.price__old {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+// Пока цена не проставлена. Намеренно спокойнее цифры: это не предложение,
+// а приглашение спросить, и кричать о нём незачем
+.price__ask {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--muted);
+}

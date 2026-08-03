@@ -1,0 +1,81 @@
+// ─── Строка товара в корзине ───
+@use "../mixins" as *;
+
+.ci {
+  display: grid;
+  grid-template-columns: 64px 1fr auto;
+  gap: 14px;
+  align-items: start;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ci:last-child {
+  border-bottom: none;
+}
+
+.ci__thumb {
+  width: 64px;
+  height: 52px;
+  border-radius: 10px;
+  background: var(--paper);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+.ci__illustration {
+  width: 54px;
+  height: 42px;
+}
+
+// Снимок показывается целиком, как и в карточке каталога: покупатель должен
+// узнать в миниатюре то, что положил в корзину
+.ci__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.ci__name {
+  font-weight: 700;
+  font-size: 14.5px;
+  line-height: 1.3;
+  margin: 0 0 4px;
+}
+
+.ci__unit {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.ci__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.ci__sum {
+  font-weight: 800;
+  font-size: 15.5px;
+  white-space: nowrap;
+}
+
+.ci__rm {
+  display: grid;
+  place-items: center;
+  // Цель под палец: не меньше 44px
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  color: var(--muted);
+  transition: background-color 0.2s, color 0.2s;
+
+  @include hover {
+    background: var(--paper);
+    color: var(--accent-dark);
+  }
+}
+

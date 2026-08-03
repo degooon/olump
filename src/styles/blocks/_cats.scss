@@ -1,38 +1,90 @@
-// ─── Категории (плитки под героем) ───
+// ─── Полоса быстрых категорий ───
+@use "../mixins" as *;
+
 .cats {
-  padding: 6px 0 10px;
+  padding: 60px 0 10px;
 }
 
-.cats__grid {
+.cats__scroller {
+  position: relative;
+}
+
+// Стрелки показываются, когда лента не помещается, — на любом устройстве.
+// Состоянием управляет cats.js.
+.cats__arrow {
+  position: absolute;
+  // Плитки занимают полосу от верха контейнера до его низа минус 6px
+  // (столько остаётся от запаса ленты под тень). Растягиваем кнопку по этой
+  // полосе и центруем автоотступами — тогда она стоит ровно по плиткам,
+  // без подгонки числами.
+  bottom: -20%;
+  margin-block: auto;
+  z-index: 2;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(126px, 1fr));
-  gap: 12px;
-}
-
-.cat {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 14px 8px 12px;
-  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
-}
-
-.cat:hover {
-  border-color: var(--ink);
-  box-shadow: var(--shadow);
-  transform: translateY(-2px);
-}
-
-.cat svg {
-  width: 66px;
+  place-items: center;
+  width: 50px;
   height: 50px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: 0 4px 14px -6px rgba(38, 34, 28, 0.45);
+  transition: background-color 0.2s, opacity 0.2s;
+
+  @include hover {
+    background: var(--paper);
+  }
 }
 
-.cat span {
-  font-size: 13.5px;
-  font-weight: 700;
+.cats__arrow--prev {
+  left: -6px;
+  rotate: 180deg;
+}
+
+.cats__arrow--next {
+  right: -6px;
+}
+
+// Докрутили до края — кнопка гаснет, но остаётся на месте, чтобы лента
+// не дёргалась вправо-влево при каждом нажатии
+.cats__arrow:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.cats__arrow[hidden] {
+  display: none;
+}
+
+// Лента в один ряд: на широких экранах все категории помещаются и
+// прокрутка не нужна, на узких — листается пальцем. Сетка тут не годится:
+// категорий семь, это простое число, и последний ряд всегда оставался
+// неполным — с дырой справа при любой ширине, кроме самой большой.
+.cats__grid {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  overscroll-behavior-x: contain; // свайп по ленте не листает страницу назад
+
+  // Лента доходит до краёв экрана, хотя содержимое остаётся в колонке:
+  // обрезанная плитка у края и подсказывает, что список прокручивается
+  margin-inline: -20px;
+  padding-inline: 20px;
+  // Без этого прилипание выравнивает плитку по краю контейнера, а не по
+  // колонке контента — первая плитка уезжала вплотную к краю экрана
+  scroll-padding-inline: 20px;
+
+  // Контейнер прокрутки обрезает и по вертикали, поэтому оставляем запас:
+  // сверху под подъём при наведении, снизу под тень и въезд плиток
+  padding-block: 6px 34px;
+  margin-block: -6px -28px;
+
+  // Полосу прокрутки прячем: на сенсорных экранах её и так нет,
+  // а на десктопе всё помещается и листать нечего
+  scrollbar-width: none;
+}
+
+.cats__grid::-webkit-scrollbar {
+  display: none;
 }

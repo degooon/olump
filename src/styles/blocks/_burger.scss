@@ -1,0 +1,22 @@
+// ─── Кнопка мобильного меню ───
+// На широких экранах не нужна, показывается в utils/_media.scss
+.burger {
+  display: none;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+}
+
+// Иконку переключаем по aria-expanded — состояние и так хранится в атрибуте,
+// отдельный класс для этого не нужен
+.burger__close,
+.burger[aria-expanded="true"] .burger__open {
+  display: none;
+}
+
+.burger[aria-expanded="true"] .burger__close {
+  display: block;
+}

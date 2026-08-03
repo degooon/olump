@@ -1,0 +1,11 @@
+// ─── Логотип (шапка и подвал) ───
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo__full {
+  height: 92px;
+  width: auto;
+  display: block;
+}

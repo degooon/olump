@@ -1,0 +1,101 @@
+// ─── Свой список сортировки ───
+// Разметка и поведение — в js/sort.js. Нативный select заменён потому,
+// что на iOS он открывается системным барабаном снизу и выглядит иначе,
+// чем на компьютере, а стилизуемый select там пока не поддерживается.
+@use "../mixins" as *;
+
+.sort {
+  position: relative; // от него отсчитывается выпадающий список
+}
+
+.sort__button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 44px;
+  padding: 8px 12px 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 14px;
+  text-align: left;
+  transition: border-color 0.2s;
+
+  @include hover {
+    border-color: var(--ink);
+  }
+}
+
+.sort__button[aria-expanded="true"] {
+  border-color: var(--ink);
+}
+
+.sort__value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sort__chevron {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: var(--muted);
+  transition: rotate 0.2s;
+}
+
+.sort__button[aria-expanded="true"] .sort__chevron {
+  rotate: 180deg;
+}
+
+.sort__list {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 30;
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  // Не даём списку вырасти выше экрана: у длинного перечня появится прокрутка
+  max-height: min(320px, 60vh);
+  overflow-y: auto;
+}
+
+// У нижнего края экрана разворачиваем вверх — иначе часть пунктов не видна
+.sort__list--up {
+  top: auto;
+  bottom: calc(100% + 6px);
+}
+
+.sort__list[hidden] {
+  display: none;
+}
+
+.sort__option {
+  display: flex;
+  align-items: center;
+  min-height: 44px; // цель под палец: не меньше 44px
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+// Подсветка идёт за клавиатурой и за указателем одинаково —
+// поэтому это класс, а не :hover
+.sort__option--active {
+  background: var(--paper);
+}
+
+.sort__option[aria-selected="true"] {
+  font-weight: 700;
+}

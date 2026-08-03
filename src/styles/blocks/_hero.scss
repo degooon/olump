@@ -45,24 +45,6 @@
   align-items: center;
 }
 
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  color: var(--accent-dark);
-}
-
-.eyebrow::before {
-  content: "";
-  width: 34px;
-  height: 1px;
-  background: var(--accent-dark);
-}
-
 .hero__title {
   font-family: var(--font-d);
   font-weight: 400;
@@ -71,7 +53,7 @@
   margin: 18px 0;
 }
 
-.hero__title em {
+.hero__accent {
   font-style: normal;
   color: var(--accent-dark);
 }
@@ -89,39 +71,6 @@
   gap: 14px;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 50px;
-  padding: 12px 26px;
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.btn--primary {
-  background: var(--ink);
-  color: var(--bg);
-}
-
-.btn--primary:hover {
-  background: var(--accent-dark);
-  color: #ffffff;
-}
-
-.btn--ghost {
-  border: 1px solid var(--line);
-  background: var(--surface);
-  color: var(--ink);
-}
-
-.btn--ghost:hover {
-  border-color: var(--ink);
-}
-
 .hero__stats {
   display: flex;
   gap: 42px;
@@ -130,23 +79,13 @@
   border-top: 1px solid var(--line);
 }
 
-.stat__num {
-  font-family: var(--font-d);
-  font-size: 29px;
-  line-height: 1.2;
-}
-
-.stat__label {
-  font-size: 13px;
-  color: var(--muted);
-  margin-top: 2px;
-}
-
 // Рисованная сцена скрыта: её место занял фото-фон с диваном.
 // Чтобы вернуть иллюстрацию — поставь display: block и убери фон у .hero.
 .hero__scene {
   position: relative;
   display: none;
+  // Появляется после текстовой колонки, а не вместе с ней
+  --reveal-delay: 250ms;
 }
 
 .hero__arch {
@@ -187,7 +126,7 @@
   color: var(--muted);
 }
 
-.hero__tag b {
+.hero__tag-price {
   display: block;
   font-family: var(--font-d);
   font-size: 18px;

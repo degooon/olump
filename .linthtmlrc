@@ -1,0 +1,13 @@
+{
+  "rules": {
+    "class-style": [true, "bem"],
+    "class-no-dup": true,
+    "attr-no-dup": true,
+    "id-no-dup": true,
+    "tag-name-lowercase": true,
+    "attr-quote-style": [true, "double"],
+    "spec-char-escape": true,
+    "tag-close": true,
+    "tag-self-close": false
+  }
+}

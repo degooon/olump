@@ -1,0 +1,17 @@
+// ─── Чекбокс с подписью ───
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  min-height: 44px; // цель под палец: не меньше 44px
+  cursor: pointer;
+}
+
+.check__input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+  cursor: pointer;
+  margin: 0;
+}

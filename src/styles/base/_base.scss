@@ -50,7 +50,7 @@ s {
 }
 
 .container {
-  max-width: 1160px;
+  max-width: 1440px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -71,6 +71,11 @@ s {
   clip: rect(0 0 0 0);
   white-space: nowrap;
   border: 0;
+}
+
+// Блокирует прокрутку страницы, пока открыта корзина
+.no-scroll {
+  overflow: hidden;
 }
 
 :focus-visible {

@@ -1,0 +1,46 @@
+// ─── Кнопка «В корзину» на карточке ───
+@use "../mixins" as *;
+
+.add {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 9px 16px;
+  border-radius: 12px;
+  background: var(--ink);
+  color: var(--bg);
+  font-weight: 700;
+  font-size: 13.5px;
+  white-space: nowrap;
+  transition: background-color 0.2s, color 0.2s;
+
+  @include hover {
+    background: var(--accent-dark);
+    color: #ffffff;
+  }
+}
+
+.add--in {
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+
+  // Товар уже в корзине — повторный клик убирает его, поэтому ховер
+  // не меняет вид. Правило нужно, чтобы перекрыть .add:hover.
+  @include hover {
+    background: var(--accent-soft);
+    color: var(--accent-dark);
+  }
+}
+
+.add:disabled {
+  background: var(--bg);
+  color: var(--muted);
+  border: 1px dashed var(--line);
+  cursor: not-allowed;
+}
+
+.add__icon {
+  width: 17px;
+  height: 17px;
+}

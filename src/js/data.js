@@ -1,30 +1,138 @@
 // ─── Данные каталога ───
-// Товары, подписи категорий и цвета выкрасок карточек.
-// Фото импортируем — Vite сам захеширует и оптимизирует их при сборке.
-import divanZevsPhoto from '../img/cards/divan-krem-fon.webp';
+// Товары и категории берутся из разметки: WordPress печатает их одним блоком
+//   <script type="application/json" id="catalog-data">…</script>
+// Формат блока описан в docs/catalog-data.md — это договор между темой и
+// фронтендом, менять его надо с обеих сторон сразу.
+//
+// Если блока нет (открыли просто index.html, собрали без WordPress) —
+// работает набор ниже: это реальные товары склада с настоящими фотографиями,
+// но без цен. Цены проставит владелец в админке WordPress.
 
-export const PRODUCTS = [
-  { id: 1, name: 'Диван «Гера»', cat: 'sofa', price: 78990, old: 92990, color: 'terra', mat: 'velour', stock: true, pop: 98, isNew: false, img: 'sofa' },
-  { id: 2, name: 'Диван «Атлас»', cat: 'sofa', price: 64500, old: null, color: 'graphite', mat: 'fabric', stock: true, pop: 74, isNew: false, img: 'sofa' },
-  { id: 3, name: 'Диван «Эос»', cat: 'sofa', price: 71200, old: null, color: 'olive', mat: 'fabric', stock: false, pop: 61, isNew: true, img: 'sofa' },
-  { id: 4, name: 'Кресло «Арго»', cat: 'armchair', price: 24900, old: null, color: 'terra', mat: 'velour', stock: true, pop: 95, isNew: false, img: 'armchair' },
-  { id: 5, name: 'Кресло «Ника»', cat: 'armchair', price: 19700, old: null, color: 'beige', mat: 'fabric', stock: true, pop: 68, isNew: false, img: 'armchair' },
-  { id: 6, name: 'Кресло «Понт»', cat: 'armchair', price: 27300, old: null, color: 'graphite', mat: 'wood', stock: true, pop: 55, isNew: true, img: 'armchair' },
-  { id: 7, name: 'Стол «Олимпия»', cat: 'table', price: 42000, old: null, color: 'beige', mat: 'wood', stock: true, pop: 90, isNew: false, img: 'table' },
-  { id: 8, name: 'Стол «Ирида»', cat: 'table', price: 14800, old: null, color: 'graphite', mat: 'metal', stock: true, pop: 63, isNew: true, img: 'table' },
-  { id: 9, name: 'Стол «Гелиос»', cat: 'table', price: 36400, old: 41900, color: 'beige', mat: 'wood', stock: false, pop: 58, isNew: false, img: 'table' },
-  { id: 10, name: 'Стул «Эол»', cat: 'chair', price: 7900, old: null, color: 'beige', mat: 'wood', stock: true, pop: 72, isNew: false, img: 'chair' },
-  { id: 11, name: 'Стул «Борей»', cat: 'chair', price: 9400, old: null, color: 'graphite', mat: 'metal', stock: true, pop: 66, isNew: true, img: 'chair' },
-  { id: 12, name: 'Стул «Зефир»', cat: 'chair', price: 8600, old: null, color: 'terra', mat: 'velour', stock: true, pop: 81, isNew: false, img: 'chair' },
-  { id: 13, name: 'Кровать «Селена»', cat: 'bed', price: 54300, old: null, color: 'beige', mat: 'fabric', stock: true, pop: 88, isNew: false, img: 'bed' },
-  { id: 14, name: 'Кровать «Морфей»', cat: 'bed', price: 61800, old: null, color: 'graphite', mat: 'velour', stock: true, pop: 77, isNew: true, img: 'bed' },
-  { id: 15, name: 'Шкаф «Аргус»', cat: 'storage', price: 48900, old: null, color: 'beige', mat: 'wood', stock: true, pop: 52, isNew: false, img: 'wardrobe' },
-  { id: 16, name: 'Стеллаж «Гермес»', cat: 'storage', price: 21500, old: null, color: 'graphite', mat: 'metal', stock: true, pop: 70, isNew: false, img: 'shelf' },
-  { id: 17, name: 'Торшер «Гестия»', cat: 'light', price: 12400, old: null, color: 'terra', mat: 'metal', stock: true, pop: 69, isNew: true, img: 'lamp' },
-  { id: 18, name: 'Лампа «Фаэтон»', cat: 'light', price: 6900, old: null, color: 'olive', mat: 'metal', stock: false, pop: 49, isNew: false, img: 'lamp' },
-  { id: 19, name: 'Диван «Зевс»', cat: 'sofa', price: 84900, old: null, color: 'graphite', mat: 'velour', stock: true, pop: 93, isNew: true, img: 'sofa', photo: divanZevsPhoto },
+// Все фотографии карточек разом. Забираем их пачкой, а не сорока импортами
+// руками; Vite подставит адреса с хешами при сборке.
+const FILES = import.meta.glob('../img/cards/*.webp', { eager: true, query: '?url', import: 'default' });
+
+// Каждое фото заготовлено в трёх ширинах. У части исходников не хватило
+// разрешения на 1600px — такого файла просто нет, и в srcset он не попадёт.
+// В photo кладём средний размер: это то, что увидят браузеры постарше,
+// не умеющие выбирать по srcset.
+function shot(slug) {
+  const found = [400, 800, 1600]
+    .map((w) => [w, FILES[`../img/cards/${ slug }-${ w }.webp`]])
+    .filter(([, url]) => url);
+  if (!found.length) {
+    return {};
+  }
+  const mid = found.find(([w]) => w === 800) ?? found[found.length - 1];
+  return {
+    photo: mid[1],
+    srcset: found.map(([w, url]) => `${ url } ${ w }w`).join(', '),
+  };
+}
+
+// id — код категории (он же в поле cat у товара), icon — имя иконки в спрайте.
+// С id совпадает не всегда: шкафам подходит картинка гардероба, а отдельной
+// иконки для кухонь в спрайте нет — взят стеллаж.
+const DEMO_CATEGORIES = [
+  { id: 'sofa', label: 'Диваны', icon: 'sofa' },
+  { id: 'storage', label: 'Шкафы', icon: 'wardrobe' },
+  { id: 'table', label: 'Столы', icon: 'table' },
+  { id: 'bed', label: 'Кровати', icon: 'bed' },
+  { id: 'kitchen', label: 'Кухни', icon: 'shelf' },
+  { id: 'dresser', label: 'Комоды', icon: 'dresser' },
 ];
 
-export const CAT_LABEL = { sofa: 'Диваны', armchair: 'Кресла', table: 'Столы', chair: 'Стулья', bed: 'Кровати', storage: 'Шкафы', light: 'Свет' };
+// Товары: слаг фотографии, название, категория.
+// Порядок в списке — это и есть порядок в выдаче «По популярности».
+// Выше поставлены снимки на однотонном фоне: они выглядят каталожно,
+// и с них приятнее начинать. Названия описательные — их проставит
+// по-своему владелец в админке.
+const ITEMS = [
+  ['divan-19', 'Диван модульный графит', 'sofa'],
+  ['divan-20', 'Диван угловой серый', 'sofa'],
+  ['divan-13', 'Диван прямой голубой', 'sofa'],
+  ['divan-15', 'Диван угловой сиреневый', 'sofa'],
+  ['divan-14', 'Диван модульный оливковый', 'sofa'],
+  ['divan-11', 'Диван модульный зелёный', 'sofa'],
+  ['shkaf-04', 'Шкаф-купе белый', 'storage'],
+  ['shkaf-05', 'Шкаф-купе трёхдверный', 'storage'],
+  ['kuhnya-01', 'Кухня бежевая', 'kitchen'],
+  ['kuhnya-02', 'Кухня зелёная', 'kitchen'],
+  ['kuhnya-03', 'Кухня графит', 'kitchen'],
+  ['shkaf-06', 'Шкаф в прихожую', 'storage'],
+  ['stol-01', 'Стол керамика чёрный', 'table'],
+  ['stol-02', 'Стол керамика белый', 'table'],
+  ['stol-03', 'Стол керамика светлый', 'table'],
+  ['stol-06', 'Стол керамика мрамор', 'table'],
+  ['stol-04', 'Обеденная группа белая', 'table'],
+  ['stol-05', 'Обеденная группа бежевая', 'table'],
+  ['divan-05', 'Диван угловой синий', 'sofa'],
+  ['divan-07', 'Диван угловой каретная стяжка', 'sofa'],
+  ['divan-09', 'Диван угловой серо-бежевый', 'sofa'],
+  ['divan-03', 'Диван угловой с креслами', 'sofa'],
+  ['divan-06', 'Диван прямой синий велюр', 'sofa'],
+  ['divan-10', 'Диван прямой коричневый велюр', 'sofa'],
+  ['divan-01', 'Диван модульный рубчик', 'sofa'],
+  ['divan-12', 'Диван трёхместный рубчик', 'sofa'],
+  ['divan-16', 'Диван прямой синий', 'sofa'],
+  ['divan-17', 'Диван прямой серый', 'sofa'],
+  ['divan-18', 'Диван прямой светло-серый', 'sofa'],
+  ['divan-08', 'Диван прямой бежевый', 'sofa'],
+  ['divan-04', 'Диван прямой светлый', 'sofa'],
+  ['divan-02', 'Диван-книжка светлый', 'sofa'],
+  ['shkaf-07', 'Шкаф-купе зеркальный', 'storage'],
+  ['shkaf-01', 'Шкаф-купе комбинированный', 'storage'],
+  ['shkaf-03', 'Шкаф распашной светлый', 'storage'],
+  ['shkaf-02', 'Шкаф распашной с антресолью', 'storage'],
+  ['krovat-03', 'Кровать мягкая светлая', 'bed'],
+  ['krovat-02', 'Кровать с изголовьем «веер»', 'bed'],
+  ['krovat-01', 'Кровать с изголовьем «ракушка»', 'bed'],
+  ['komod-01', 'Комод графит', 'dresser'],
+  ['komod-02', 'Комод дуб с графитом', 'dresser'],
+];
 
-export const COLOR_HEX = { graphite: '#4A4642', beige: '#D8C3A0', terra: '#C0653F', olive: '#8A8B67' };
+const ICON = Object.fromEntries(DEMO_CATEGORIES.map((c) => [c.id, c.icon]));
+
+// price не указана намеренно: цен пока нет, карточка покажет «по запросу».
+// Появятся в WordPress — придут вместе с остальными полями.
+//
+// pop — просто убывающий вес, повторяющий порядок списка. Держим его ниже
+// порога плашки «Хит» (88): реальных данных о том, что берут чаще, у нас нет,
+// а плашка на каждой карточке — уже не плашка.
+const DEMO_PRODUCTS = ITEMS.map(([slug, name, cat], i) => ({
+  id: 100 + i,
+  name,
+  cat,
+  old: null,
+  stock: true,
+  pop: ITEMS.length - i,
+  isNew: false,
+  img: ICON[cat],
+  ...shot(slug),
+}));
+
+// Читаем данные из разметки. Возвращаем null при любой неожиданности: сайт
+// со старыми товарами лучше, чем пустая страница и ошибка в консоли. Каталог,
+// который не удалось разобрать, — повод чинить тему, а не ронять витрину.
+function fromPage() {
+  const el = document.getElementById('catalog-data');
+  if (!el) {
+    return null;
+  }
+  try {
+    const data = JSON.parse(el.textContent);
+    const ok = Array.isArray(data.categories) && data.categories.length > 0 && Array.isArray(data.products);
+    return ok ? data : null;
+  } catch {
+    return null;
+  }
+}
+
+const page = fromPage();
+
+export const CATEGORIES = page ? page.categories : DEMO_CATEGORIES;
+export const PRODUCTS = page ? page.products : DEMO_PRODUCTS;
+
+// Подпись по коду категории — для карточек. Не отдельный список, а срез
+// CATEGORIES: разойтись с ним ему уже нечем.
+export const CAT_LABEL = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));

@@ -11,12 +11,20 @@
   }
 }
 
-.hero__inner > * {
-  animation: fadeUp 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+// ─── Появление блоков при прокрутке ───
+// Блок с классом reveal ждёт своей очереди спрятанным; модификатор вешает
+// js/reveal.js, когда блок въезжает в кадр. Задержку каскада тот же скрипт
+// кладёт в --reveal-delay — как инлайновый animation-delay у карточек.
+// backwards нужен, чтобы во время задержки блок оставался невидимым:
+// без него он мигнул бы на месте и только потом поехал.
+.reveal {
+  opacity: 0;
 }
 
-.hero__scene {
-  animation-delay: 0.12s;
+.reveal--in {
+  opacity: 1;
+  animation: fadeUp 0.6s ease-out backwards;
+  animation-delay: var(--reveal-delay, 0ms);
 }
 
 // Полностью отключаем анимации, если пользователь просит «уменьшить движение».
@@ -32,6 +40,12 @@
 
   html {
     scroll-behavior: auto;
+  }
+
+  // Показываем сразу и не ждём прокрутки: без анимации ждать нечего,
+  // а зависеть от скрипта содержимое страницы не должно
+  .reveal {
+    opacity: 1;
   }
 }
 /* stylelint-enable declaration-no-important */

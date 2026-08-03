@@ -1,23 +1,69 @@
 // ─────────────────────────────────────────────
 //  Мебельный склад «Олимп» — точка сборки стилей
-//  Порядок подключения = порядок в итоговом CSS,
-//  поэтому менять его нужно осознанно (каскад!).
+//  Один блок — один файл. Порядок подключения =
+//  порядок в итоговом CSS, менять его осознанно (каскад!).
 // ─────────────────────────────────────────────
 
 // База: переменные и сброс
 @use "base/variables";
 @use "base/base";
 
-// Блоки (в порядке появления на странице)
-@use "blocks/header";
-@use "blocks/hero";
-@use "blocks/cats";
+// Общие блоки, встречаются в разных секциях
+@use "blocks/btn";
+@use "blocks/eyebrow";
+@use "blocks/logo";
 @use "blocks/section";
+
+// Шапка
+@use "blocks/header";
+@use "blocks/burger";
+@use "blocks/nav";
+
+// Герой
+@use "blocks/hero";
+@use "blocks/stat";
+
+// Быстрые категории
+@use "blocks/cats";
+@use "blocks/cat";
+
+// Каталог: раскладка и фильтры
+@use "blocks/catalog";
 @use "blocks/filters";
+@use "blocks/filters-toggle";
+@use "blocks/fgroup";
+@use "blocks/search";
+@use "blocks/chips";
+@use "blocks/chip";
+@use "blocks/price-range";
+@use "blocks/check";
+
+// Каталог: витрина
+@use "blocks/toolbar";
+@use "blocks/sortwrap";
+@use "blocks/sort";
+@use "blocks/grid";
 @use "blocks/card";
+@use "blocks/badge";
+@use "blocks/price";
+@use "blocks/add";
+@use "blocks/more";
+@use "blocks/empty";
+
+// Преимущества и подвал
 @use "blocks/features";
+@use "blocks/feature";
 @use "blocks/footer";
+
+// Окно товара
+@use "blocks/product-overlay";
+@use "blocks/product";
+
+// Корзина
+@use "blocks/cart-overlay";
 @use "blocks/cart";
+@use "blocks/ci";
+@use "blocks/qty";
 
 // Утилиты: анимации и адаптив (идут последними)
 @use "utils/animations";

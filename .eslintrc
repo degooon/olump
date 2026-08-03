@@ -7,5 +7,34 @@
     "browser": true,
     "es2023": true
   },
-  "extends": "htmlacademy/vanilla"
+  "extends": "htmlacademy/vanilla",
+  "rules": {
+    "object-shorthand": ["error", "always"],
+    "no-param-reassign": ["error", { "props": false }],
+    "no-implicit-coercion": ["error", { "allow": ["!!", "+"] }],
+    "consistent-return": "error",
+    "default-case-last": "error",
+    "no-else-return": ["error", { "allowElseIf": false }],
+    "prefer-arrow-callback": "error",
+    "prefer-destructuring": ["error", { "object": true, "array": false }],
+    "no-lonely-if": "error",
+    "no-useless-return": "error",
+    "no-return-assign": "error",
+    "radix": "error",
+    "no-alert": "error",
+    "no-eval": "error",
+    "no-implied-eval": "error",
+    "no-script-url": "error",
+    "no-throw-literal": "error",
+    "no-promise-executor-return": "error",
+    "require-atomic-updates": "error",
+    "array-callback-return": "error",
+    "no-constant-binary-expression": "error",
+    "no-self-compare": "error",
+    "no-unmodified-loop-condition": "error",
+    "no-unreachable-loop": "error",
+    "no-template-curly-in-string": "error",
+    "prefer-object-spread": "error",
+    "symbol-description": "error"
+  }
 }

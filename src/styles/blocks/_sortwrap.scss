@@ -1,0 +1,8 @@
+// ─── Подпись «Сортировка» рядом с выпадающим списком ───
+.sortwrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--muted);
+}

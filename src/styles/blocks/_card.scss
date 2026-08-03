@@ -1,13 +1,5 @@
-// ─── Сетка и карточки товаров ───
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 20px;
-}
-
-.grid.hidden {
-  display: none;
-}
+// ─── Карточка товара ───
+@use "../mixins" as *;
 
 .card {
   background: var(--surface);
@@ -17,35 +9,56 @@
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
-  animation: fadeUp 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  // backwards, а не both: завершённая анимация с fill forwards продолжала бы
+  // применять transform из последнего кадра и глушила бы ховер-подъём
+  animation: fadeUp 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  cursor: pointer;
+
+  @include hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-3px);
+    border-color: #d8cdb6;
+  }
 }
 
-.card:hover {
-  box-shadow: var(--shadow);
-  transform: translateY(-3px);
-  border-color: #d8cdb6;
-}
-
+// Пропорция вместо фиксированной высоты: раньше рисунок упирался в потолок
+// 148px и на широкой карточке висел посреди пустоты, а фото при той же
+// высоте 190px обрезалось тем сильнее, чем шире экран. 4/3 — пропорция
+// самих иллюстраций (viewBox 200×150), поэтому рисунок ложится в область
+// почти без полей.
 .card__media {
   position: relative;
+  aspect-ratio: 4 / 3;
   background: var(--paper);
-  padding: 26px 22px 16px;
+  // Проценты, а не пиксели: поля растут вместе с карточкой.
+  // Все стороны считаются от ширины — так устроены процентные отступы.
+  padding: 8% 9% 5%;
 }
 
-.card__media > svg {
+.card__illustration {
   width: 100%;
-  height: 148px;
+  height: 100%;
 }
 
-// Карточка с фотографией: снимок заполняет всю медиа-область без полей.
-// Высота = высоте области с иллюстрацией (26 + 148 + 16), чтобы сетка не прыгала.
+// Карточка с фотографией: рамка та же, полей нет.
 .card__media--photo {
   padding: 0;
 }
 
+// Снимок показывается целиком, а не заполняет рамку: у мебели обрезка режет
+// то, ради чего кадр и снят, — подлокотник дивана, верх шкафа. Кадры сняты
+// в разных пропорциях, поэтому вокруг вертикальных остаются поля подложки.
+//
+// Из потока картинку выводим намеренно. В потоке её высота перебивала бы
+// aspect-ratio рамки: вертикальный кадр растягивал бы карточку под себя,
+// и высота карточек в ряду разъезжалась. Абсолютное положение оставляет
+// последнее слово за рамкой, а 4:3 держится при любой пропорции снимка.
+// z-index не нужен: плашки лежат в потоке выше по индексу.
 .card__photo {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 190px;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -56,58 +69,6 @@
   display: flex;
   gap: 6px;
   z-index: 1;
-}
-
-.badge {
-  font-size: 11.5px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  padding: 5px 10px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--bg);
-}
-
-.badge--sale {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-.badge--new {
-  background: var(--olive);
-  color: #ffffff;
-}
-
-.fav {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  z-index: 1;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  display: grid;
-  place-items: center;
-  color: var(--muted);
-  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
-}
-
-.fav:hover {
-  color: var(--accent);
-  border-color: var(--accent);
-}
-
-.fav[aria-pressed="true"] {
-  color: #ffffff;
-  background: var(--accent);
-  border-color: var(--accent);
-}
-
-.fav .icon {
-  width: 18px;
-  height: 18px;
 }
 
 .card__body {
@@ -142,95 +103,4 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-}
-
-.price {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.25;
-}
-
-.price__now {
-  font-weight: 800;
-  font-size: 17.5px;
-}
-
-.price__old {
-  font-size: 13px;
-  color: var(--muted);
-}
-
-.add {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  min-height: 44px;
-  padding: 9px 16px;
-  border-radius: 12px;
-  background: var(--ink);
-  color: var(--bg);
-  font-weight: 700;
-  font-size: 13.5px;
-  white-space: nowrap;
-  transition: background-color 0.2s, color 0.2s;
-}
-
-.add:hover {
-  background: var(--accent-dark);
-  color: #ffffff;
-}
-
-.add.in {
-  background: var(--accent-soft);
-  color: var(--accent-dark);
-}
-
-.add.in:hover {
-  background: var(--accent-soft);
-  color: var(--accent-dark);
-}
-
-.add:disabled {
-  background: var(--bg);
-  color: var(--muted);
-  border: 1px dashed var(--line);
-  cursor: not-allowed;
-}
-
-.add .icon {
-  width: 17px;
-  height: 17px;
-}
-
-// ─── Пустое состояние каталога ───
-.empty {
-  display: none;
-  text-align: center;
-  padding: 70px 20px;
-  border: 1px dashed var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-}
-
-.empty.show {
-  display: block;
-}
-
-.empty .icon {
-  width: 56px;
-  height: 56px;
-  margin: 0 auto 16px;
-  color: var(--muted);
-}
-
-.empty h3 {
-  font-family: var(--font-d);
-  font-weight: 400;
-  font-size: 24px;
-  margin: 0 0 8px;
-}
-
-.empty p {
-  color: var(--muted);
-  margin: 0 0 22px;
 }

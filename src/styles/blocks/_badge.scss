@@ -1,0 +1,20 @@
+// ─── Плашка на карточке (скидка, новинка, хит) ───
+.badge {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.badge--sale {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.badge--new {
+  background: var(--olive);
+  color: #ffffff;
+}

@@ -1,0 +1,10 @@
+// ─── Кнопка «Показать ещё» ───
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.more[hidden] {
+  display: none;
+}
