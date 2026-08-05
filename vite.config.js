@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import { createHtmlPlugin } from 'vite-plugin-html';
 import VitePluginSvgSpritemap from '@spiriit/vite-plugin-svg-spritemap';
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer';
+import { wpTemplate } from './build/wp-template.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -29,11 +30,19 @@ export default defineConfig(({ mode }) => {
     // подставляются сами, а вот ссылку на фон героя внутри CSS подставить
     // некому — её адрес приходится зашить при сборке.
     base: isTheme ? `/wp-content/themes/${ THEME_DIR }/assets/` : './',
-    publicDir: isTheme ? false : path.resolve(__dirname, 'src/public'),
+    // Фавиконка, иконка для iOS и картинка превью нужны обеим сборкам:
+    // шаблон темы ссылается на них через olimp_asset()
+    publicDir: path.resolve(__dirname, 'src/public'),
 
     plugins: [
       // Минификация HTML — только для статической сборки, в теме HTML нет
       ...(isTheme ? [] : [createHtmlPlugin({ minify: true })]),
+
+      // Шаблон главной страницы темы собирается из того же index.html
+      ...(isTheme ? [wpTemplate({
+        src: path.resolve(__dirname, 'src/index.html'),
+        out: path.resolve(__dirname, `wp-theme/${ THEME_DIR }/front-page.php`),
+      })] : []),
 
       // Спрайт иконок. Каждая иконка — отдельный файл в img/sprite, плагин
       // собирает их в один. Префикс i- оставлен прежним, чтобы ссылки вида

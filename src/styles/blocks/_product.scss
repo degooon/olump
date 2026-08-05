@@ -7,7 +7,8 @@
   top: 50%;
   z-index: 120;
   width: min(720px, calc(100vw - 40px));
-  max-height: calc(100vh - 40px);
+  max-height: calc(100vh - 40px); // запасной вариант для браузеров без dvh
+  max-height: calc(100dvh - 40px);
   overflow: hidden;
   background: var(--surface);
   border-radius: var(--radius);
@@ -70,7 +71,8 @@
 .product__photo {
   width: 100%;
   height: auto;
-  max-height: calc(100vh - 40px);
+  max-height: calc(100vh - 40px); // запасной вариант для браузеров без dvh
+  max-height: calc(100dvh - 40px);
   object-fit: contain;
   display: block;
 }

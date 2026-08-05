@@ -12,6 +12,14 @@
       }
     ],
 
+    "declaration-block-no-duplicate-properties": [
+      true,
+      {
+        "ignore": ["consecutive-duplicates-with-different-values"],
+        "message": "Повтор свойства допустим только как запасной вариант: сначала старая запись, сразу за ней новая"
+      }
+    ],
+
     "selector-max-compound-selectors": 2,
     "selector-max-specificity": "0,3,1",
     "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],

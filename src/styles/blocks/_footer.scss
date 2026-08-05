@@ -65,3 +65,33 @@
   font-size: 13.5px;
   flex-wrap: wrap;
 }
+
+// Подпись разработчика. Тише строки с телефоном склада, но читаемая:
+// на общем приглушённом фоне подвала она иначе теряется совсем.
+.footer__author {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14.5px;
+  color: rgba(239, 233, 220, 0.75);
+}
+
+// Значок мессенджера. Ссылок несколько, поэтому цель под палец задана
+// здесь, а не на всей строке: иначе они слиплись бы в одну.
+.footer__contact {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px; // цель под палец: не меньше 44px
+  color: inherit;
+  transition: color 0.2s;
+
+  @include hover {
+    color: rgba(239, 233, 220, 1);
+  }
+}
+
+.footer__contact .icon {
+  width: 18px;
+  height: 18px;
+}

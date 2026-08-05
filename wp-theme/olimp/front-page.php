@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html <?php language_attributes(); ?>>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Мебельный склад «Олимп» — мебель для дома</title>
 <meta name="description" content="Мебельный склад «Олимп»: диваны, кресла, столы и кровати в наличии. Каталог с фильтрами, доставка по России, гарантия 5 лет.">
 
-<link rel="icon" href="./favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="./apple-touch-icon.png">
+<link rel="icon" href="<?php echo esc_url( olimp_asset( 'favicon.svg' ) ); ?>" type="image/svg+xml">
+<link rel="apple-touch-icon" href="<?php echo esc_url( olimp_asset( 'apple-touch-icon.png' ) ); ?>">
 <meta name="theme-color" content="#B14E2B">
 
 <!--
@@ -21,9 +21,9 @@
 <meta property="og:title" content="Мебельный склад «Олимп» — мебель для дома">
 <meta property="og:description" content="Диваны, кресла, столы и кровати в наличии. Доставка по России, сборка под ключ, гарантия 5 лет.">
 <!-- Каноническая ссылка: защита от дублей вида «с www» и «без www» -->
-<link rel="canonical" href="https://degooon.github.io/olump/">
-<meta property="og:url" content="https://degooon.github.io/olump/">
-<meta property="og:image" content="https://degooon.github.io/olump/og.jpg">
+<link rel="canonical" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+<meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
+<meta property="og:image" content="<?php echo esc_url( olimp_asset( 'og.jpg' ) ); ?>">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Мебельный склад «Олимп»">
@@ -32,7 +32,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="./styles/style.scss">
 
 <!--
   Разметка организации для поисковиков: кто это, чем торгует, куда звонить.
@@ -45,8 +44,8 @@
   "@type": "FurnitureStore",
   "name": "Мебельный склад «Олимп»",
   "description": "Диваны, кресла, столы, кровати и шкафы в наличии. Доставка по России, сборка под ключ, гарантия 5 лет.",
-  "url": "https://degooon.github.io/olump/",
-  "image": "https://degooon.github.io/olump/og.jpg",
+  "url": "<?php echo esc_url( home_url( '/' ) ); ?>",
+  "image": "<?php echo esc_url( olimp_asset( 'og.jpg' ) ); ?>",
   "telephone": "+79620018222",
   "areaServed": "RU",
   "priceRange": "$$"
@@ -60,8 +59,9 @@
   и без него правило с той же силой, но идущее позже, перекрыло бы наше.
 -->
 <noscript><style>.reveal { opacity: 1 !important; }</style></noscript>
+<?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 
 
 <!-- Шапка -->
@@ -100,8 +100,8 @@
       </svg>
     </a>
     <button class="burger" type="button" id="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Меню">
-      <svg class="icon burger__open" aria-hidden="true"><use href="/__spritemap#i-menu"/></svg>
-      <svg class="icon burger__close" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
+      <svg class="icon burger__open" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-menu"/></svg>
+      <svg class="icon burger__close" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-x"/></svg>
     </button>
     <nav class="nav" id="nav" aria-label="Основная навигация">
       <a class="nav__link" href="#catalog">Каталог</a>
@@ -109,7 +109,7 @@
       <a class="nav__link" href="#contacts">Контакты</a>
     </nav>
     <button class="header__cart" type="button" id="cart-open" aria-haspopup="dialog" aria-controls="cart-drawer" aria-label="Корзина">
-      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-bag"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-bag"/></svg>
       <span class="header__cart-label">Корзина</span>
       <span class="header__count" id="cart-count" hidden>0</span>
     </button>
@@ -129,7 +129,7 @@
           <p class="hero__text reveal">Диваны, кресла и столы из массива и честных тканей. Делаем сами, доставляем по всей России и даём гарантию 5&nbsp;лет — потому что уверены в каждом шве.</p>
           <div class="hero__actions reveal">
             <a class="btn btn--primary" href="#catalog">Смотреть каталог
-              <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-arrow"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-arrow"/></svg>
             </a>
             <a class="btn btn--ghost" href="#features">Доставка и гарантия</a>
           </div>
@@ -140,9 +140,9 @@
         </div>
         <div class="hero__scene reveal">
           <div class="hero__arch">
-            <svg class="hero__item" viewBox="0 0 200 150" style="--tint:#C0653F" role="img" aria-label="Кресло «Арго»"><use href="/__spritemap#i-armchair"/></svg>
+            <svg class="hero__item" viewBox="0 0 200 150" style="--tint:#C0653F" role="img" aria-label="Кресло «Арго»"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-armchair"/></svg>
           </div>
-          <svg class="hero__lamp" viewBox="0 0 200 150" style="--tint:#8A8B67" aria-hidden="true"><use href="/__spritemap#i-lamp"/></svg>
+          <svg class="hero__lamp" viewBox="0 0 200 150" style="--tint:#8A8B67" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-lamp"/></svg>
           <div class="hero__tag">Кресло «Арго»<b class="hero__tag-price">24 900 ₽</b></div>
         </div>
       </div>
@@ -156,7 +156,7 @@
         Плитки категорий собирает cats.js из списка CATEGORIES в data.js.
         Листается пальцем, трекпадом и полосой прокрутки под лентой.
       -->
-      <div class="cats__grid" id="cats-grid" tabindex="0" role="group" aria-label="Категории, прокручиваемый список"></div>
+      <div class="cats__grid" id="cats-grid" tabindex="0" role="group" aria-label="Категории, прокручиваемый список"><?php olimp_tiles(); ?></div>
       <!--
         Своя полоса вместо системной: системная и на macOS, и на iOS всплывает
         только во время прокрутки, а нужна постоянная подсказка. Состоянием
@@ -178,7 +178,7 @@
           <h2 class="section__title">Выберите свою мебель</h2>
         </div>
         <button class="filters-toggle" type="button" id="filters-toggle" aria-expanded="false" aria-controls="filters-panel">
-          <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-filter"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-filter"/></svg>
           Фильтры
         </button>
       </div>
@@ -190,14 +190,14 @@
           <form id="filters-form">
             <div class="search">
               <label class="visually-hidden" for="search">Поиск по каталогу</label>
-              <svg class="icon search__icon" aria-hidden="true"><use href="/__spritemap#i-search"/></svg>
+              <svg class="icon search__icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-search"/></svg>
               <input class="search__input" type="search" id="search" name="q" placeholder="Поиск по каталогу" autocomplete="off">
             </div>
 
             <div class="fgroup" role="group" aria-labelledby="f-cat">
               <h3 class="fgroup__title" id="f-cat">Категория</h3>
               <!-- Переключатели собирает catalog.js из того же списка CATEGORIES -->
-              <div class="chips" id="cat-chips"></div>
+              <div class="chips" id="cat-chips"><?php olimp_chips(); ?></div>
             </div>
 
             <div class="fgroup" role="group" aria-labelledby="f-price">
@@ -220,7 +220,7 @@
             </div>
 
             <button class="filters__reset" type="reset">
-              <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
+              <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-x"/></svg>
               Сбросить фильтры
             </button>
           </form>
@@ -229,7 +229,7 @@
         <!-- Витрина -->
         <div>
           <div class="toolbar">
-            <span class="toolbar__count" id="count" role="status"></span>
+            <span class="toolbar__count" id="count" role="status"><?php olimp_count(); ?></span>
             <div class="toolbar__right">
               <div class="sortwrap">
                 <span class="sortwrap__label" id="sort-label">Сортировка</span>
@@ -242,7 +242,7 @@
                     aria-haspopup="listbox" aria-expanded="false" aria-controls="sort-list"
                     aria-labelledby="sort-label sort-button">
                     <span class="sort__value" id="sort-value">По популярности</span>
-                    <svg class="icon sort__chevron" aria-hidden="true"><use href="/__spritemap#i-chevron"/></svg>
+                    <svg class="icon sort__chevron" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-chevron"/></svg>
                   </button>
                   <ul class="sort__list" id="sort-list" role="listbox" aria-labelledby="sort-label" hidden>
                     <li class="sort__option" id="sort-pop" role="option" data-value="pop" aria-selected="true">По популярности</li>
@@ -255,7 +255,7 @@
             </div>
           </div>
 
-          <div class="grid" id="grid"></div>
+          <div class="grid" id="grid"><?php olimp_cards(); ?></div>
 
           <!-- Каталог выводится порциями: подпись кнопки ставит catalog.js -->
           <div class="more" id="more" hidden>
@@ -263,7 +263,7 @@
           </div>
 
           <div class="empty" id="empty">
-            <svg class="icon empty__icon" aria-hidden="true"><use href="/__spritemap#i-search"/></svg>
+            <svg class="icon empty__icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-search"/></svg>
             <h3 class="empty__title">Ничего не нашлось</h3>
             <p class="empty__text">Попробуйте смягчить условия — например, поднять планку цены или убрать часть фильтров.</p>
             <button class="btn btn--ghost" type="button" id="empty-reset">Сбросить фильтры</button>
@@ -279,15 +279,15 @@
     <div class="container">
       <div class="features__grid">
         <div class="feature reveal">
-          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="/__spritemap#i-truck"/></svg></div>
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-truck"/></svg></div>
           <div><h3 class="feature__title">Доставка по России</h3><p class="feature__text">До двери за 3–7 дней. Бережно упакуем и поднимем на этаж.</p></div>
         </div>
         <div class="feature reveal">
-          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="/__spritemap#i-box"/></svg></div>
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-box"/></svg></div>
           <div><h3 class="feature__title">Сборка под ключ</h3><p class="feature__text">Мастер соберёт мебель и заберёт упаковку с собой.</p></div>
         </div>
         <div class="feature reveal">
-          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="/__spritemap#i-shield"/></svg></div>
+          <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-shield"/></svg></div>
           <div><h3 class="feature__title">Гарантия 5 лет</h3><p class="feature__text">На каркас, механизмы и фурнитуру — без мелкого шрифта.</p></div>
         </div>
       </div>
@@ -365,11 +365,11 @@
         Разработка сайта
         <a class="footer__contact" href="https://max.ru/u/f9LHodD0cOLQZPPSiiy8yTNRf5g_Uj6dO8Q7nFAXAbdgaJ1Exe6Uhw_a248"
           target="_blank" rel="noopener nofollow" aria-label="Написать разработчику в MAX">
-          <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-chat"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-chat"/></svg>
         </a>
         <a class="footer__contact" href="https://t.me/danil01487"
           target="_blank" rel="noopener nofollow" aria-label="Написать разработчику в Telegram">
-          <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-send"/></svg>
+          <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-send"/></svg>
         </a>
       </span>
     </div>
@@ -380,7 +380,7 @@
 <div class="product-overlay" id="product-overlay" hidden></div>
 <div class="product" id="product" role="dialog" aria-modal="true" hidden>
   <button class="product__close" type="button" id="product-close" aria-label="Закрыть карточку товара">
-    <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
+    <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-x"/></svg>
   </button>
   <div class="product__inner" id="product-inner"></div>
 </div>
@@ -391,7 +391,7 @@
   <div class="cart__head">
     <h2 class="cart__title" id="cart-title">Корзина</h2>
     <button class="cart__close" type="button" id="cart-close" aria-label="Закрыть корзину">
-      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-x"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-x"/></svg>
     </button>
   </div>
   <div class="cart__list" id="cart-items"></div>
@@ -402,26 +402,26 @@
   <div class="cart__foot" id="cart-foot">
     <div class="cart__total"><span>Итого</span><span id="cart-total">0 ₽</span></div>
     <a class="cart__order" id="cart-call" href="tel:">
-      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-phone"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-phone"/></svg>
       Позвонить и заказать
     </a>
     <a class="cart__order cart__order--soft" id="cart-sms" href="sms:">
-      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-chat"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-chat"/></svg>
       Написать в SMS
     </a>
     <button class="cart__order cart__order--soft" type="button" id="cart-max" hidden>
-      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-arrow"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-arrow"/></svg>
       Написать в MAX
     </button>
     <p class="cart__hint" id="cart-hint">Назовём цену, сроки и договоримся о доставке</p>
     <button class="cart__copy" type="button" id="cart-copy">
-      <svg class="icon" aria-hidden="true"><use href="/__spritemap#i-copy"/></svg>
+      <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-copy"/></svg>
       Скопировать список заказа
     </button>
   </div>
 </aside>
 
-
-<script type="module" src="./js/main.js"></script>
+<?php olimp_catalog_json(); ?>
+<?php wp_footer(); ?>
 </body>
 </html>

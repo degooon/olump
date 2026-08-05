@@ -35,8 +35,8 @@ export const filtersPanel = document.getElementById('filters-panel');
 
 // Лента быстрых категорий
 export const catsGrid = document.getElementById('cats-grid');
-export const catsPrev = document.getElementById('cats-prev');
-export const catsNext = document.getElementById('cats-next');
+export const catsBar = document.getElementById('cats-bar');
+export const catsThumb = document.getElementById('cats-thumb');
 
 // Окно товара
 export const productModal = document.getElementById('product');

@@ -1,6 +1,6 @@
 // ─── Каталог: фильтрация, карточки, отрисовка сетки ───
 // Переключатели категорий тоже собираются здесь — из общего списка CATEGORIES.
-import { PRODUCTS, CATEGORIES, CAT_LABEL } from './data.js';
+import { PRODUCTS, CATEGORIES } from './data.js';
 import { fmt, smooth, esc } from './utils.js';
 import { cart } from './state.js';
 import {
@@ -120,7 +120,6 @@ function cardHTML(p, i) {
       ${media}
     </button>
     <div class="card__body">
-      <span class="card__cat">${esc(CAT_LABEL[p.cat] ?? '')}</span>
       <h3 class="card__name">${name}</h3>
       <div class="card__row">
         <div class="price">
