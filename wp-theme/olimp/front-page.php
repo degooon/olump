@@ -43,6 +43,14 @@
   "url": "<?php echo esc_url( home_url( '/' ) ); ?>",
   "image": "<?php echo esc_url( olimp_asset( 'og.jpg' ) ); ?>",
   "telephone": "+79620018222",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "RU",
+    "addressRegion": "Ставропольский край",
+    "addressLocality": "село Александровское",
+    "streetAddress": "улица Калинина, 60"
+  },
+  "openingHours": "Mo-Su 10:00-20:00",
   "areaServed": "RU",
   "priceRange": "$$"
 }
@@ -339,6 +347,15 @@
         <h4 class="footer__heading">Контакты</h4>
         <ul class="footer__list">
           <li><a class="footer__link" href="tel:+79620018222">+7 (962) 001-82-22</a></li>
+          <!--
+            Ссылка на карты, а не просто текст: с телефона это один тап
+            до маршрута. Для склада, куда приезжают смотреть мебель,
+            это важнее любого другого контакта.
+          -->
+          <li>
+            <a class="footer__link" href="https://yandex.ru/maps/?text=Ставропольский%20край%2C%20село%20Александровское%2C%20улица%20Калинина%2C%2060"
+              target="_blank" rel="noopener">с. Александровское, ул. Калинина, 60</a>
+          </li>
           <li>Ежедневно с 10:00 до 20:00</li>
         </ul>
       </div>
