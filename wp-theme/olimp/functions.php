@@ -95,9 +95,9 @@ function olimp_assets() {
 	$css = olimp_built( 'styles/style.scss' );
 	$js  = olimp_built( 'js/main.js' );
 
-	// Шрифты подключаются с внешнего сервера — preconnect экономит время
-	// на установку соединения, пока браузер разбирает разметку
-	wp_enqueue_style( 'olimp-fonts', 'https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap', array(), null );
+	// Отдельного запроса за шрифтами нет: они лежат в папке темы и описаны
+	// прямо в собранном CSS. Раньше подключались с fonts.googleapis.com —
+	// и IP каждого посетителя уходил за рубеж.
 
 	if ( $css ) {
 		wp_enqueue_style( 'olimp', $css, array(), null );

@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Мебельный склад «Олимп» — мебель для дома</title>
-<meta name="description" content="Мебельный склад «Олимп»: диваны, кресла, столы и кровати в наличии. Каталог с фильтрами, доставка по России, гарантия 5 лет.">
+<meta name="description" content="Мебельный склад «Олимп»: диваны, шкафы, столы, кровати и кухни в наличии. Каталог с фильтрами, доставка по России и сборка.">
 
 <link rel="icon" href="<?php echo esc_url( olimp_asset( 'favicon.svg' ) ); ?>" type="image/svg+xml">
 <link rel="apple-touch-icon" href="<?php echo esc_url( olimp_asset( 'apple-touch-icon.png' ) ); ?>">
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="Мебельный склад «Олимп»">
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Мебельный склад «Олимп» — мебель для дома">
-<meta property="og:description" content="Диваны, кресла, столы и кровати в наличии. Доставка по России, сборка под ключ, гарантия 5 лет.">
+<meta property="og:description" content="Диваны, шкафы, столы, кровати и кухни в наличии. Доставка по России и сборка.">
 <!-- Каноническая ссылка: защита от дублей вида «с www» и «без www» -->
 <link rel="canonical" href="<?php echo esc_url( home_url( '/' ) ); ?>">
 <meta property="og:url" content="<?php echo esc_url( home_url( '/' ) ); ?>">
@@ -28,10 +28,6 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Мебельный склад «Олимп»">
 <meta name="twitter:card" content="summary_large_image">
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Prata&display=swap" rel="stylesheet">
 
 <!--
   Разметка организации для поисковиков: кто это, чем торгует, куда звонить.
@@ -43,7 +39,7 @@
   "@context": "https://schema.org",
   "@type": "FurnitureStore",
   "name": "Мебельный склад «Олимп»",
-  "description": "Диваны, кресла, столы, кровати и шкафы в наличии. Доставка по России, сборка под ключ, гарантия 5 лет.",
+  "description": "Диваны, шкафы, столы, кровати и кухни в наличии. Доставка по России и сборка.",
   "url": "<?php echo esc_url( home_url( '/' ) ); ?>",
   "image": "<?php echo esc_url( olimp_asset( 'og.jpg' ) ); ?>",
   "telephone": "+79620018222",
@@ -126,16 +122,12 @@
         <div>
           <span class="eyebrow reveal">Мебельный склад</span>
           <h1 class="hero__title reveal">Мебель, достойная <em class="hero__accent">Олимпа</em></h1>
-          <p class="hero__text reveal">Диваны, кресла и столы из массива и честных тканей. Делаем сами, доставляем по всей России и даём гарантию 5&nbsp;лет — потому что уверены в каждом шве.</p>
+          <p class="hero__text reveal">Диваны, шкафы, столы и кровати — всё, что видите в каталоге, есть на складе. Привозим по всей России, поднимаем на этаж и собираем.</p>
           <div class="hero__actions reveal">
             <a class="btn btn--primary" href="#catalog">Смотреть каталог
               <svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-arrow"/></svg>
             </a>
-            <a class="btn btn--ghost" href="#features">Доставка и гарантия</a>
-          </div>
-          <div class="hero__stats reveal">
-            <div class="stat"><div class="stat__num">12 лет</div><div class="stat__label">делаем мебель</div></div>
-            <div class="stat"><div class="stat__num">5 лет</div><div class="stat__label">гарантии на всё</div></div>
+            <a class="btn btn--ghost" href="#features">Доставка и сборка</a>
           </div>
         </div>
         <div class="hero__scene reveal">
@@ -288,7 +280,7 @@
         </div>
         <div class="feature reveal">
           <div class="feature__icon"><svg class="icon" aria-hidden="true"><use href="<?php echo esc_url( olimp_sprite() ); ?>#i-shield"/></svg></div>
-          <div><h3 class="feature__title">Гарантия 5 лет</h3><p class="feature__text">На каркас, механизмы и фурнитуру — без мелкого шрифта.</p></div>
+          <div><h3 class="feature__title">Всё со склада</h3><p class="feature__text">Не ждать поставку с фабрики: что в каталоге, то и на складе.</p></div>
         </div>
       </div>
     </div>
@@ -333,14 +325,14 @@
 <path transform="translate(394.88 260.08) scale(0.01550 -0.01550)" d="M60 -240V254Q125 254 170.5 286.5Q216 319 245.0 378.5Q274 438 291.0 518.0Q308 598 316 692Q326 812 334.0 928.5Q342 1045 350.0 1170.5Q358 1296 368 1442L1324 1440V254H1434V-240H1162V0H332V-240ZM466 254H1052V1186L616 1188Q609 1089 604.5 1006.0Q600 923 594.0 838.0Q588 753 578 648Q568 543 558.0 475.5Q548 408 527.5 358.0Q507 308 466 254Z" fill="#FFFFFF"/>
 </svg>
         </a>
-        <p class="footer__about">Проектируем и производим мебель, которая переживает моду: спокойные формы, массив дерева и ткани, приятные на ощупь.</p>
+        <p class="footer__about">Мебельный склад: держим на месте то, что обычно ждут неделями. Спокойные формы и материалы, приятные на ощупь.</p>
       </div>
       <div>
         <h4 class="footer__heading">Навигация</h4>
         <ul class="footer__list">
           <li><a class="footer__link" href="#catalog">Каталог</a></li>
           <li><a class="footer__link" href="#features">Доставка и сборка</a></li>
-          <li><a class="footer__link" href="#features">Гарантия</a></li>
+          <li><a class="footer__link" href="#features">Наличие на складе</a></li>
         </ul>
       </div>
       <div>

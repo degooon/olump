@@ -71,13 +71,6 @@
   gap: 14px;
 }
 
-.hero__stats {
-  display: flex;
-  gap: 42px;
-  margin-top: 42px;
-  padding-top: 26px;
-  border-top: 1px solid var(--line);
-}
 
 // Рисованная сцена скрыта: её место занял фото-фон с диваном.
 // Чтобы вернуть иллюстрацию — поставь display: block и убери фон у .hero.

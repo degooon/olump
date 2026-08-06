@@ -5,6 +5,7 @@
 // ─────────────────────────────────────────────
 
 // База: переменные и сброс
+@use "base/fonts";
 @use "base/variables";
 @use "base/base";
 
@@ -21,7 +22,6 @@
 
 // Герой
 @use "blocks/hero";
-@use "blocks/stat";
 
 // Быстрые категории
 @use "blocks/cats";
