@@ -24,6 +24,9 @@ const OLIMP_ASSETS = 'assets';
 const OLIMP_YANDEX_VERIFICATION = '84d9fd413466ff88';
 const OLIMP_GOOGLE_VERIFICATION = '';
 
+// Номер счётчика Яндекс.Метрики. Пустой — счётчик не печатается.
+const OLIMP_METRIKA_ID = '111394740';
+
 /* -------------------------------------------------------------------------
  *  Адреса собранных файлов
  * ---------------------------------------------------------------------- */
@@ -173,6 +176,48 @@ function olimp_verification() {
 			printf( '<meta name="%s" content="%s">' . "\n", esc_attr( $name ), esc_attr( $code ) );
 		}
 	}
+}
+
+add_action( 'wp_head', 'olimp_metrika', 20 );
+
+/**
+ * Счётчик Яндекс.Метрики.
+ *
+ * Свои визиты не считаем: вошедший в админку — это владелец или разработчик,
+ * а не покупатель. На сайте с десятком посетителей в день такие заходы
+ * искажают картину сильнее всего.
+ *
+ * Скрипт грузится асинхронно и отрисовку не задерживает, поэтому стоит
+ * в head: чем раньше счётчик проснётся, тем меньше визитов он потеряет.
+ *
+ * @return void
+ */
+function olimp_metrika() {
+	if ( '' === OLIMP_METRIKA_ID || is_user_logged_in() ) {
+		return;
+	}
+
+	$id = (int) OLIMP_METRIKA_ID;
+
+	// Код взят из самой Метрики, изменено одно: убран ecommerce:"dataLayer".
+	// Он включает сбор покупок, а покупок на сайте нет — заказ оформляется
+	// звонком. Пустой отчёт о продажах хуже отсутствующего: на него смотрят
+	// и делают выводы из нулей.
+	echo <<<HTML
+<!-- Yandex.Metrika counter -->
+<script>
+(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();
+for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id={$id}', 'ym');
+
+ym({$id}, 'init', {ssr:true, webvisor:true, clickmap:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/{$id}" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+HTML;
 }
 
 /* -------------------------------------------------------------------------
