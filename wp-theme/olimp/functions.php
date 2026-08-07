@@ -18,6 +18,12 @@ defined( 'ABSPATH' ) || exit;
 
 const OLIMP_ASSETS = 'assets';
 
+// Коды подтверждения прав в поисковых системах. Их выдают Яндекс.Вебмастер
+// и Google Search Console при добавлении сайта — до этого пустые, и тогда
+// в разметку ничего не печатается.
+const OLIMP_YANDEX_VERIFICATION = '84d9fd413466ff88';
+const OLIMP_GOOGLE_VERIFICATION = '';
+
 /* -------------------------------------------------------------------------
  *  Адреса собранных файлов
  * ---------------------------------------------------------------------- */
@@ -143,6 +149,30 @@ function olimp_setup() {
 	add_image_size( 'olimp-card', 400, 300, true );
 	add_image_size( 'olimp-card-2x', 800, 600, true );
 	add_image_size( 'olimp-card-3x', 1600, 1200, true );
+}
+
+add_action( 'wp_head', 'olimp_verification', 1 );
+
+/**
+ * Мета-теги подтверждения прав для Яндекс.Вебмастера и Google Search Console.
+ *
+ * Печатаются только заполненные: тег с пустым кодом ничего не подтверждает,
+ * а лишняя строка в head ни к чему. После подтверждения теги надо оставить —
+ * сервисы перепроверяют их и снимают права, если тег пропал.
+ *
+ * @return void
+ */
+function olimp_verification() {
+	$codes = array(
+		'yandex-verification'      => OLIMP_YANDEX_VERIFICATION,
+		'google-site-verification' => OLIMP_GOOGLE_VERIFICATION,
+	);
+
+	foreach ( $codes as $name => $code ) {
+		if ( '' !== $code ) {
+			printf( '<meta name="%s" content="%s">' . "\n", esc_attr( $name ), esc_attr( $code ) );
+		}
+	}
 }
 
 /* -------------------------------------------------------------------------
