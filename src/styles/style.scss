@@ -50,6 +50,9 @@
 @use "blocks/more";
 @use "blocks/empty";
 
+// Текстовые страницы (политика конфиденциальности)
+@use "blocks/doc";
+
 // Преимущества и подвал
 @use "blocks/features";
 @use "blocks/feature";

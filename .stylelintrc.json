@@ -36,7 +36,11 @@
 
   "overrides": [
     {
-      "files": ["src/styles/base/**/*.scss", "src/styles/utils/_animations.scss"],
+      "files": [
+        "src/styles/base/**/*.scss",
+        "src/styles/utils/_animations.scss",
+        "src/styles/blocks/_doc.scss"
+      ],
       "rules": {
         "selector-max-type": null
       }

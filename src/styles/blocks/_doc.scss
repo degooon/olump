@@ -1,0 +1,66 @@
+// ─── Текстовая страница: политика конфиденциальности и прочие документы ───
+// Содержимое приходит из редактора WordPress голыми тегами, классы к нему
+// не приделать. Поэтому здесь единственное место в проекте, где оформление
+// идёт по тегам, — исключение прописано в .stylelintrc.
+.doc {
+  padding: 40px 0 80px;
+}
+
+.doc__back {
+  display: inline-block;
+  margin-bottom: 28px;
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.doc__back:hover {
+  color: var(--accent-dark);
+}
+
+.doc__title {
+  font-family: var(--font-d);
+  font-weight: 400;
+  font-size: clamp(30px, 4vw, 44px);
+  line-height: 1.15;
+  margin: 0 0 28px;
+}
+
+// Ширина колонки в знаках, а не в пикселях: строка длиннее 70 знаков
+// заставляет глаз терять начало следующей.
+.doc__body {
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.doc__body p {
+  margin: 0 0 18px;
+}
+
+.doc__body h2 {
+  font-family: var(--font-d);
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 36px 0 14px;
+}
+
+.doc__body h3 {
+  font-size: 19px;
+  margin: 28px 0 12px;
+}
+
+.doc__body ul,
+.doc__body ol {
+  margin: 0 0 18px;
+  padding-left: 22px;
+}
+
+.doc__body li {
+  margin-bottom: 8px;
+}
+
+.doc__body a {
+  color: var(--accent-dark);
+}

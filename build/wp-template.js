@@ -38,6 +38,14 @@ function toPhp(html) {
     .replace('"url": "https://degooon.github.io/olump/"', '"url": "<?php echo esc_url( home_url( \'/\' ) ); ?>"')
     .replace('"image": "https://degooon.github.io/olump/og.jpg"', '"image": "<?php echo esc_url( olimp_asset( \'og.jpg\' ) ); ?>"')
     .replace(/<link rel="canonical" href="[^"]*">/, '<link rel="canonical" href="<?php echo esc_url( home_url( \'/\' ) ); ?>">')
+    // Ссылка на политику конфиденциальности. В разметке стоит полный адрес —
+    // он нужен статической сборке, где своей страницы нет. Здесь берём адрес
+    // у WordPress: страницу могут переименовать или сменить домен, а ссылка
+    // должна остаться рабочей.
+    .replace(
+      'href="https://olimp-mebel26.ru/privacy-policy/"',
+      'href="<?php echo esc_url( get_privacy_policy_url() ); ?>"'
+    )
     // Каталог отдаём сразу разметкой, а не только скриптом: до того, как
     // отработает JS, страница уже содержит названия товаров и категорий.
     // Скрипт при загрузке перерисует эти же блоки и дальше ведёт их сам.
